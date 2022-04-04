@@ -1,12 +1,88 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:templates="clr-namespace:Totalview_Time_Smartclient"
              x:Class="Totalview_Time_Smartclient.LoginUserDetails"
              Title="LoginUserDetails"
-             BackgroundColor="White">
-    <StackLayout>
-        <Label Text="Welcome to .NET MAUI!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-    </StackLayout>
+             Style="{StaticResource ContentPageDefault}">
+    <Grid Margin="15,15,15,15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="320"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--ROW 0 SECTION-->
+        <StackLayout Grid.Row="0">
+            <templates:LoginTitleGrid></templates:LoginTitleGrid>
+        </StackLayout>
+        <!--ROW 1 SECTION-->
+        <StackLayout Grid.Row="1">
+            <!-- USERNAME CONTAINER -->
+            <StackLayout Margin="0,0,0,15">
+                <Label 
+                       Text="Username"
+                       FontSize="{DynamicResource smallFontSize}"
+                       FontFamily="RobotoMedium"
+                       TextColor="{DynamicResource PrimaryColor}">
+                </Label>
+                <Entry Style="{StaticResource EntryPrimaryMedium}" Placeholder="username"></Entry>
+                <BoxView Style="{StaticResource BoxViewSmallDefault}"></BoxView>
+            </StackLayout>
+            <!--PASSWORD CONTAINER-->
+            <StackLayout Margin="0,0,0,40">
+                <Label 
+                       Text="Password"
+                       FontSize="{DynamicResource smallFontSize}"
+                       FontFamily="RobotoMedium"
+                       TextColor="{DynamicResource PrimaryColor}">
+                </Label>
+                <Entry Style="{StaticResource EntryPrimaryMedium}" Placeholder="password"></Entry>
+                <BoxView Style="{StaticResource BoxViewSmallDefault}"></BoxView>
+            </StackLayout>
+            <!--BUTTON CONTAINER-->
+            <StackLayout>
+                <!--LOGIN BUTTON-->
+                <Button Style="{StaticResource ButtonLargeDefault}" 
+                        Margin="0,0,0,15"
+                        Text="Login"
+                        HorizontalOptions="Center">
+                </Button>
+                <!--CHANGE SERVER BUTTON-->
+                <Button Style="{StaticResource ButtonLargeDefault}" 
+                        Text="Change Server"
+                        HorizontalOptions="Center">
+                </Button>
+            </StackLayout>
+        </StackLayout>
+        <!--ROW 2 SECTION-->
+        <StackLayout Grid.Row="2">
+            <!--SERVER TITLE CONTAINER-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.9*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.9*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <BoxView Grid.Column="0" Style="{StaticResource BoxViewSmallDefault}" VerticalOptions="Center"></BoxView>
+                <Label Grid.Column="1"
+                       Text="Server" 
+                       TextColor="{DynamicResource PrimaryColor}"
+                       FontSize="{DynamicResource largeFontSize}"
+                       FontFamily="RobotoBold"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                </Label>
+                <BoxView Grid.Column="2" Style="{StaticResource BoxViewSmallDefault}" VerticalOptions="Center"></BoxView>
+            </Grid>
+            <Label Margin="0,5,0,0"
+                   Text="example.totalview.cloud"
+                   FontSize="{DynamicResource mediumFontSize}"
+                   FontFamily="RobotoRegular"
+                   HorizontalOptions="Center">
+            </Label>
+        </StackLayout>
+        <!--ROW 3 SECTION-->
+        <templates:LoginLearnMoreGrid Grid.Row="3"></templates:LoginLearnMoreGrid>
+    </Grid>
 </ContentPage>

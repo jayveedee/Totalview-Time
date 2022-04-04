@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      x:Class="Totalview_Time_Smartclient.LoginTitleGrid"
+      VerticalOptions="Start">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*"></RowDefinition>
+        <RowDefinition Height="*"></RowDefinition>
+    </Grid.RowDefinitions>
+    <Grid Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0"
+               Text="Total" 
+               TextColor="{DynamicResource PrimaryColor}"
+               FontSize="{DynamicResource hugeFontSize}"
+               FontFamily="RobotoRegular"
+               HorizontalOptions="End">
+        </Label>
+        <Label Grid.Column="1"
+               Text="view" 
+               TextColor="{DynamicResource PrimaryColor}"
+               FontSize="{DynamicResource hugeFontSize}"
+               FontFamily="RobotoBold"
+               HorizontalOptions="Start">
+        </Label>
+    </Grid>
+    <Label Grid.Row="1"
+           Text="Time" 
+           TextColor="{DynamicResource PrimaryColor}"
+           FontSize="{DynamicResource hugeFontSize}"
+           FontFamily="RobotoRegular"
+           VerticalOptions="Center" 
+           HorizontalOptions="Center">
+    </Label>
+</Grid>

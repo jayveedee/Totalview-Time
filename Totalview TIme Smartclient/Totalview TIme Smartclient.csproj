@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-android;net6.0-ios;<!-- net6.0-maccatalyst --></TargetFrameworks>
+		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0;<!-- net6.0-maccatalyst --></TargetFrameworks>
 		<!-- <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
 		<RootNamespace>Totalview_Time_Smartclient</RootNamespace>
@@ -53,9 +53,29 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="MVVM\Model\" />
-	  <Folder Include="MVVM\ViewModel\" />
-	  <Folder Include="Resources\NewFolder\" />
+	  <AndroidResource Remove="Platforms\MacCatalyst\**" />
+	  <AndroidResource Remove="Platforms\Windows\**" />
+	  <Compile Remove="Platforms\MacCatalyst\**" />
+	  <Compile Remove="Platforms\Windows\**" />
+	  <EmbeddedResource Remove="Platforms\MacCatalyst\**" />
+	  <EmbeddedResource Remove="Platforms\Windows\**" />
+	  <MauiCss Remove="Platforms\MacCatalyst\**" />
+	  <MauiCss Remove="Platforms\Windows\**" />
+	  <MauiXaml Remove="Platforms\MacCatalyst\**" />
+	  <MauiXaml Remove="Platforms\Windows\**" />
+	  <None Remove="Platforms\MacCatalyst\**" />
+	  <None Remove="Platforms\Windows\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.5.0" />
+	  <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.5.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="MVVM\View\Templates\LoginTitleGrid.xaml.cs">
+	    <DependentUpon>LoginTitleGrid.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -63,6 +83,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="MVVM\View\LoginUserDetails.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="MVVM\View\Templates\LoginLearnMoreGrid.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="MVVM\View\Templates\LoginTitleGrid.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
