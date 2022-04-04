@@ -7,8 +7,8 @@
 
             <!-- COLORS -->
             <Color x:Key="PrimaryColor">#002D62</Color>
-            <Color x:Key="SecondaryColor">#E2E9F2</Color>
-            <Color x:Key="TeritaryColor">#FFFFFF</Color>
+            <Color x:Key="SecondaryColor">#E2E9F2</Color
+            <Color x:Key="TeritaryColor">#1D4A74</Color>
 
             <Color x:Key="PrimaryTextColor">#000000</Color>
             <Color x:Key="SecondaryTextColor">#757C83</Color>

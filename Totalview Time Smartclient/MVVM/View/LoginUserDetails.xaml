@@ -37,7 +37,17 @@
                        FontFamily="RobotoMedium"
                        TextColor="{DynamicResource PrimaryColor}">
                 </Label>
-                <Entry Style="{StaticResource EntryPrimaryMedium}" Placeholder="password"></Entry>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Entry Grid.Column="0" Style="{StaticResource EntryPrimaryMedium}" 
+                           Placeholder="password"
+                           IsPassword="True">
+                    </Entry>
+                    <Image Grid.Column="1" Source="visible"></Image>
+                </Grid>
                 <BoxView Style="{StaticResource BoxViewSmallDefault}"></BoxView>
             </StackLayout>
             <!--BUTTON CONTAINER-->
@@ -51,7 +61,8 @@
                 <!--CHANGE SERVER BUTTON-->
                 <Button Style="{StaticResource ButtonLargeDefault}" 
                         Text="Change Server"
-                        HorizontalOptions="Center">
+                        HorizontalOptions="Center"
+                        BackgroundColor="{DynamicResource TeritaryColor}">
                 </Button>
             </StackLayout>
         </StackLayout>

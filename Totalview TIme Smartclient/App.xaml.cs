@@ -7,7 +7,7 @@ public partial class App : Application
         InitializeComponent();
 
         //MainPage = new MainPage();
-        MainPage = new LoginServerDetails();
-        //MainPage = new LoginUserDetails();
+        //MainPage = new LoginServerDetails();
+        MainPage = new LoginUserDetails();
     }
 }
