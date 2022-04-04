@@ -1,12 +1,13 @@
-﻿namespace Totalview_TIme_Smartclient
-{
-    public partial class App : Application
-    {
-        public App()
-        {
-            InitializeComponent();
+﻿namespace Totalview_Time_Smartclient;
 
-            MainPage = new MainPage();
-        }
+public partial class App : Application
+{
+    public App()
+    {
+        InitializeComponent();
+
+        //MainPage = new MainPage();
+        //MainPage = new LoginServerDetails();
+        MainPage = new LoginUserDetails();
     }
 }
