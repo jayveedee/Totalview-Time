@@ -26,5 +26,16 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/appicon.appiconset</string>
+	<key>URL types</key>
+	<array>
+		<dict>
+			<key>URL Identifier</key>
+			<string>authentication</string>
+			<key>URL Schemes</key>
+			<array>
+				<string>fo.formula.totalview://oauth2redirect</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

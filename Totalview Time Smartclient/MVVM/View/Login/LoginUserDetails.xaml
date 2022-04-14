@@ -1,14 +1,17 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:templates="clr-namespace:Totalview_Time_Smartclient"
+             xmlns:viewmodels="clr-namespace:Totalview_Time_Smartclient.MVVM.ViewModel.Login"
              x:Class="Totalview_Time_Smartclient.LoginUserDetails"
              Title="LoginUserDetails"
-             Style="{StaticResource ContentPageDefault}">
+             Style="{StaticResource ContentPageLogin}">
+    <ContentPage.BindingContext>
+        <viewmodels:LoginUserDetailsViewModel></viewmodels:LoginUserDetailsViewModel>
+    </ContentPage.BindingContext>
     <Grid Margin="15,15,15,15">
         <Grid.RowDefinitions>
             <RowDefinition Height="200"></RowDefinition>
-            <RowDefinition Height="320"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -17,7 +20,7 @@
             <templates:LoginTitleGrid></templates:LoginTitleGrid>
         </StackLayout>
         <!--ROW 1 SECTION-->
-        <StackLayout Grid.Row="1">
+        <StackLayout Grid.Row="1" VerticalOptions="Center">
             <!-- USERNAME CONTAINER -->
             <StackLayout Margin="0,0,0,15">
                 <Label 
@@ -26,7 +29,10 @@
                        FontFamily="RobotoMedium"
                        TextColor="{DynamicResource PrimaryColor}">
                 </Label>
-                <Entry Style="{StaticResource EntryPrimaryMedium}" Placeholder="username"></Entry>
+                <Entry x:Name="UsernameEntry" Style="{StaticResource EntryPrimaryMedium}" 
+                       Placeholder="username"
+                       Text="{Binding UserNameEntryValue}">
+                </Entry>
                 <BoxView Style="{StaticResource BoxViewSmallDefault}"></BoxView>
             </StackLayout>
             <!--PASSWORD CONTAINER-->
@@ -42,11 +48,12 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Entry Grid.Column="0" Style="{StaticResource EntryPrimaryMedium}" 
+                    <Entry x:Name="PasswordEntry" Grid.Column="0" Style="{StaticResource EntryPrimaryMedium}" 
                            Placeholder="password"
+                           Text="{Binding PasswordEntryValue}"
                            IsPassword="True">
                     </Entry>
-                    <Image Grid.Column="1" Source="visible"></Image>
+                    <ImageButton x:Name="PasswordVisibilityButton" Grid.Column="1" Source="visible"></ImageButton>
                 </Grid>
                 <BoxView Style="{StaticResource BoxViewSmallDefault}"></BoxView>
             </StackLayout>
@@ -56,11 +63,13 @@
                 <Button Style="{StaticResource ButtonLargeDefault}" 
                         Margin="0,0,0,15"
                         Text="Login"
+                        Command="{Binding LoginToServerCommand}"
                         HorizontalOptions="Center">
                 </Button>
                 <!--CHANGE SERVER BUTTON-->
                 <Button Style="{StaticResource ButtonLargeDefault}" 
                         Text="Change Server"
+                        Command="{Binding ChangeServerCommand}"
                         HorizontalOptions="Center"
                         BackgroundColor="{DynamicResource TeritaryColor}">
                 </Button>
@@ -89,6 +98,7 @@
             <Label Margin="0,5,0,0"
                    Text="example.totalview.cloud"
                    FontSize="{DynamicResource mediumFontSize}"
+                   TextColor="{DynamicResource SecondaryTextColor}"
                    FontFamily="RobotoRegular"
                    HorizontalOptions="Center">
             </Label>

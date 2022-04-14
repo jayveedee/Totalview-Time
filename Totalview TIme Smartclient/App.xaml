@@ -7,7 +7,7 @@
 
             <!-- COLORS -->
             <Color x:Key="PrimaryColor">#002D62</Color>
-            <Color x:Key="SecondaryColor">#E2E9F2</Color
+            <Color x:Key="SecondaryColor">#E2E9F2</Color>
             <Color x:Key="TeritaryColor">#1D4A74</Color>
 
             <Color x:Key="PrimaryTextColor">#000000</Color>
@@ -25,6 +25,16 @@
             <!-- STYLES -->
             <Style x:Key="ContentPageDefault" TargetType="ContentPage">
                 <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}"></Setter>
+                <Setter Property="Shell.NavBarIsVisible" Value="False"></Setter>
+                <Setter Property="Shell.TabBarIsVisible" Value="True"></Setter>
+                <Setter Property="Shell.FlyoutBehavior" Value="Flyout"></Setter>
+            </Style>
+
+            <Style x:Key="ContentPageLogin" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}"></Setter>
+                <Setter Property="Shell.NavBarIsVisible" Value="False"></Setter>
+                <Setter Property="Shell.TabBarIsVisible" Value="False"></Setter>
+                <Setter Property="Shell.FlyoutBehavior" Value="Disabled"></Setter>
             </Style>
 
             <Style x:Key="BoxViewSmallDefault" TargetType="BoxView">
@@ -36,6 +46,7 @@
             <Style x:Key="ButtonLargeDefault" TargetType="Button">
                 <Setter Property="FontSize" Value="{DynamicResource largeFontSize}"></Setter>
                 <Setter Property="FontFamily" Value="RobotoMedium"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="CornerRadius" Value="30"></Setter>
                 <Setter Property="WidthRequest" Value="200"></Setter>
                 <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}"></Setter>
