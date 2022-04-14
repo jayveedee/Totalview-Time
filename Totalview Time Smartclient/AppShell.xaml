@@ -1,0 +1,13 @@
+﻿<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:Pages="clr-namespace:Totalview_Time_Smartclient"
+       x:Class="Totalview_Time_Smartclient.AppShell"
+       Title="AppShell"
+       BackgroundColor="{DynamicResource SecondaryColor}">
+
+
+    <ShellItem Route="LoginServerDetails" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate Pages:LoginServerDetails}"></ShellContent>
+    </ShellItem>
+
+</Shell>

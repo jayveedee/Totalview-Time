@@ -1,4 +1,6 @@
-﻿namespace Totalview_Time_Smartclient;
+﻿using Totalview_Time_Smartclient.MVVM.Model.Services;
+
+namespace Totalview_Time_Smartclient;
 
 public partial class App : Application
 {
@@ -6,8 +8,9 @@ public partial class App : Application
     {
         InitializeComponent();
 
-        //MainPage = new MainPage();
-        //MainPage = new LoginServerDetails();
-        MainPage = new LoginUserDetails();
+        AnalyticsService.Instance.Start(true);
+        AnalyticsService.Instance.TrackEvent(Event.Test, Category.AnalyticsTest, "Test");
+
+        MainPage = new AppShell();
     }
 }

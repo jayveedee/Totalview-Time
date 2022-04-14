@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:templates="clr-namespace:Totalview_Time_Smartclient"
+             xmlns:viewmodels="clr-namespace:Totalview_Time_Smartclient.MVVM.ViewModel.Login"
+             x:Class="Totalview_Time_Smartclient.LoginServerDetails"
+             Title="LoginServerDetails"
+             Style="{StaticResource ContentPageLogin}">
+    <ContentPage.BindingContext>
+        <viewmodels:LoginServerDetailsViewModel />
+    </ContentPage.BindingContext>
+    <Grid Margin="15,15,15,15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--ROW 0 SECTION-->
+        <StackLayout Grid.Row="0">
+            <templates:LoginTitleGrid></templates:LoginTitleGrid>
+        </StackLayout>
+        <!--ROW 1 SECTION-->
+        <StackLayout Grid.Row="1" VerticalOptions="Center">
+            <!-- CHOOSE SERVER CONTAINER -->
+            <StackLayout Margin="0,0,0,40">
+                <Label 
+                       Text="Server Address"
+                       FontSize="{DynamicResource smallFontSize}"
+                       FontFamily="RobotoMedium"
+                       TextColor="{DynamicResource PrimaryColor}">
+                </Label>
+                <Entry Style="{StaticResource EntryPrimaryMedium}"
+                       Text="{Binding ServerAddressValue}"
+                       Placeholder="dev-tv.formula.fo">
+                </Entry>
+                <BoxView Style="{StaticResource BoxViewSmallDefault}"></BoxView>
+                <Label 
+                       Text="Authority Endpoint"
+                       FontSize="{DynamicResource smallFontSize}"
+                       FontFamily="RobotoMedium"
+                       TextColor="{DynamicResource PrimaryColor}">
+                </Label>
+                <Entry Style="{StaticResource EntryPrimaryMedium}"
+                       Text="{Binding AuthenticationEndpointValue}"
+                       Placeholder="tvdev.formula.fo/TotalviewAuthentication">
+                </Entry>
+                <BoxView Style="{StaticResource BoxViewSmallDefault}"></BoxView>
+            </StackLayout>
+            <!--BUTTON CONTAINER-->
+            <StackLayout Margin="0,0,0,15">
+                <!--CONNECT TO SERVER BUTTON-->
+                <Button Style="{StaticResource ButtonLargeDefault}" 
+                        Command="{Binding ConnectToServerCommand}" 
+                        HorizontalOptions="Center"
+                        Text="Connect to Server">
+                </Button>
+            </StackLayout>
+        </StackLayout>
+        <!--ROW 3 SECTION-->
+        <templates:LoginLearnMoreGrid Grid.Row="2"></templates:LoginLearnMoreGrid>
+    </Grid>
+</ContentPage>

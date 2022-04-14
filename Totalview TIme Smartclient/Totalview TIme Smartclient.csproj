@@ -71,8 +71,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="IdentityModel" Version="6.0.0" />
+	  <PackageReference Include="IdentityModel.OidcClient" Version="5.0.0" />
 	  <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.5.0" />
 	  <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.5.0" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	  <PackageReference Include="Xamarin.CommunityToolkit.Markup.MauiCompat" Version="1.3.2" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -82,10 +86,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="MVVM\View\LoginServerDetails.xaml">
+	  <MauiXaml Update="AppShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVM\View\LoginUserDetails.xaml">
+	  <MauiXaml Update="MVVM\View\Login\LoginServerDetails.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="MVVM\View\Login\LoginUserDetails.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="MVVM\View\NavigationTabs\TimeAccounts.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="MVVM\View\Templates\LoginLearnMoreGrid.xaml">
@@ -94,6 +104,10 @@
 	  <MauiXaml Update="MVVM\View\Templates\LoginTitleGrid.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Platforms\iOS\Model\" />
 	</ItemGroup>
 
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
