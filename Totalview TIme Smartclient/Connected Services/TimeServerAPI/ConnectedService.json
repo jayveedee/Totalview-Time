@@ -9,8 +9,9 @@
     ],
     "internalTypeAccess": true,
     "namespaceMappings": [
-      "*, TimerServerAPI"
+      "*, TimeServerAPI"
     ],
+    "sync": true,
     "targetFramework": "net6.0",
     "typeReuseMode": "None"
   }

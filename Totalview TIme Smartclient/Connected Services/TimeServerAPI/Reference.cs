@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TimerServerAPI
+namespace TimeServerAPI
 {
     using System.Runtime.Serialization;
     
@@ -18,12 +18,12 @@ namespace TimerServerAPI
     internal partial class TRSException : object
     {
         
-        private TimerServerAPI.TRSExceptionType ExceptionTypeField;
+        private TimeServerAPI.TRSExceptionType ExceptionTypeField;
         
         private string TRSMessageField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal TimerServerAPI.TRSExceptionType ExceptionType
+        internal TimeServerAPI.TRSExceptionType ExceptionType
         {
             get
             {
@@ -70,12 +70,12 @@ namespace TimerServerAPI
     internal partial class AuthenticationOption : object
     {
         
-        private TimerServerAPI.AuthenticationType AuthenticationTypeField;
+        private TimeServerAPI.AuthenticationType AuthenticationTypeField;
         
         private string URLField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal TimerServerAPI.AuthenticationType AuthenticationType
+        internal TimeServerAPI.AuthenticationType AuthenticationType
         {
             get
             {
@@ -423,249 +423,420 @@ namespace TimerServerAPI
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="TotalviewTRS", ConfigurationName="TimerServerAPI.IWCFDatabase")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="TotalviewTRS", ConfigurationName="TimeServerAPI.IWCFDatabase")]
     internal interface IWCFDatabase
     {
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetServerVersion", ReplyAction="TotalviewTRS/IWCFDatabase/GetServerVersionResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetServerVersionTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetServerVersionTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        int GetServerVersion();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetServerVersion", ReplyAction="TotalviewTRS/IWCFDatabase/GetServerVersionResponse")]
         System.Threading.Tasks.Task<int> GetServerVersionAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/ThrowTRSException", ReplyAction="TotalviewTRS/IWCFDatabase/ThrowTRSExceptionResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/ThrowTRSExceptionTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/ThrowTRSExceptionTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        void ThrowTRSException(string Message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/ThrowTRSException", ReplyAction="TotalviewTRS/IWCFDatabase/ThrowTRSExceptionResponse")]
         System.Threading.Tasks.Task ThrowTRSExceptionAsync(string Message);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/UserLogin", ReplyAction="TotalviewTRS/IWCFDatabase/UserLoginResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/UserLoginTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/UserLoginTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        string UserLogin(string UserName, string Password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/UserLogin", ReplyAction="TotalviewTRS/IWCFDatabase/UserLoginResponse")]
         System.Threading.Tasks.Task<string> UserLoginAsync(string UserName, string Password);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/NetLogin", ReplyAction="TotalviewTRS/IWCFDatabase/NetLoginResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/NetLoginTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/NetLoginTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        string NetLogin(string UserName, string Domain);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/NetLogin", ReplyAction="TotalviewTRS/IWCFDatabase/NetLoginResponse")]
         System.Threading.Tasks.Task<string> NetLoginAsync(string UserName, string Domain);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetAuthenticationOption", ReplyAction="TotalviewTRS/IWCFDatabase/GetAuthenticationOptionResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetAuthenticationOptionTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
-        System.Threading.Tasks.Task<TimerServerAPI.AuthenticationOption> GetAuthenticationOptionAsync();
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetAuthenticationOptionTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        TimeServerAPI.AuthenticationOption GetAuthenticationOption();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetAuthenticationOption", ReplyAction="TotalviewTRS/IWCFDatabase/GetAuthenticationOptionResponse")]
+        System.Threading.Tasks.Task<TimeServerAPI.AuthenticationOption> GetAuthenticationOptionAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetResources", ReplyAction="TotalviewTRS/IWCFDatabase/GetResourcesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetResourcesTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetResourcesTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetResources();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetResources", ReplyAction="TotalviewTRS/IWCFDatabase/GetResourcesResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetResourcesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetStates", ReplyAction="TotalviewTRS/IWCFDatabase/GetStatesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetStatesTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetStatesTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetStates();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetStates", ReplyAction="TotalviewTRS/IWCFDatabase/GetStatesResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetStatesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUserDayRegistrations", ReplyAction="TotalviewTRS/IWCFDatabase/GetUserDayRegistrationsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUserDayRegistrationsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUserDayRegistrationsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetUserDayRegistrations(System.DateTime date, int[] UserIDs);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUserDayRegistrations", ReplyAction="TotalviewTRS/IWCFDatabase/GetUserDayRegistrationsResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetUserDayRegistrationsAsync(System.DateTime date, int[] UserIDs);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUserDayRegistrationsSingleUser", ReplyAction="TotalviewTRS/IWCFDatabase/GetUserDayRegistrationsSingleUserResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUserDayRegistrationsSingleUserTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUserDayRegistrationsSingleUserTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetUserDayRegistrationsSingleUser(System.DateTime fromDate, System.DateTime toDate, int UserID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUserDayRegistrationsSingleUser", ReplyAction="TotalviewTRS/IWCFDatabase/GetUserDayRegistrationsSingleUserResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetUserDayRegistrationsSingleUserAsync(System.DateTime fromDate, System.DateTime toDate, int UserID);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetStateGroupSettings", ReplyAction="TotalviewTRS/IWCFDatabase/GetStateGroupSettingsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetStateGroupSettingsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetStateGroupSettingsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetStateGroupSettings(System.DateTime date, int UserId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetStateGroupSettings", ReplyAction="TotalviewTRS/IWCFDatabase/GetStateGroupSettingsResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetStateGroupSettingsAsync(System.DateTime date, int UserId);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetAgreement", ReplyAction="TotalviewTRS/IWCFDatabase/GetAgreementResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetAgreementTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetAgreementTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetAgreement(System.DateTime date, int UserId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetAgreement", ReplyAction="TotalviewTRS/IWCFDatabase/GetAgreementResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetAgreementAsync(System.DateTime date, int UserId);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetCountTypeSettings", ReplyAction="TotalviewTRS/IWCFDatabase/GetCountTypeSettingsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetCountTypeSettingsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetCountTypeSettingsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetCountTypeSettings(System.DateTime date, int UserId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetCountTypeSettings", ReplyAction="TotalviewTRS/IWCFDatabase/GetCountTypeSettingsResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetCountTypeSettingsAsync(System.DateTime date, int UserId);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetParameters", ReplyAction="TotalviewTRS/IWCFDatabase/GetParametersResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetParametersTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetParametersTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetParameters(System.DateTime date, int UserId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetParameters", ReplyAction="TotalviewTRS/IWCFDatabase/GetParametersResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetParametersAsync(System.DateTime date, int UserId);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetParameter", ReplyAction="TotalviewTRS/IWCFDatabase/GetParameterResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetParameterTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetParameterTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        string GetParameter(string parameterName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetParameter", ReplyAction="TotalviewTRS/IWCFDatabase/GetParameterResponse")]
         System.Threading.Tasks.Task<string> GetParameterAsync(string parameterName);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetStateBalanceSettings", ReplyAction="TotalviewTRS/IWCFDatabase/GetStateBalanceSettingsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetStateBalanceSettingsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetStateBalanceSettingsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetStateBalanceSettings(System.DateTime date, int UserId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetStateBalanceSettings", ReplyAction="TotalviewTRS/IWCFDatabase/GetStateBalanceSettingsResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetStateBalanceSettingsAsync(System.DateTime date, int UserId);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetReBalanceSettings", ReplyAction="TotalviewTRS/IWCFDatabase/GetReBalanceSettingsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetReBalanceSettingsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetReBalanceSettingsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetReBalanceSettings(System.DateTime date, int UserId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetReBalanceSettings", ReplyAction="TotalviewTRS/IWCFDatabase/GetReBalanceSettingsResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetReBalanceSettingsAsync(System.DateTime date, int UserId);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetBalanceDefinitions", ReplyAction="TotalviewTRS/IWCFDatabase/GetBalanceDefinitionsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetBalanceDefinitionsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetBalanceDefinitionsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetBalanceDefinitions();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetBalanceDefinitions", ReplyAction="TotalviewTRS/IWCFDatabase/GetBalanceDefinitionsResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetBalanceDefinitionsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SaveRegistrations", ReplyAction="TotalviewTRS/IWCFDatabase/SaveRegistrationsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SaveRegistrationsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SaveRegistrationsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        int SaveRegistrations(System.Xml.XmlElement Registrations, System.Xml.XmlElement BalanceCorrections, System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated, int DataChanged, int ValidationChanged, int CorrectionRequestId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SaveRegistrations", ReplyAction="TotalviewTRS/IWCFDatabase/SaveRegistrationsResponse")]
         System.Threading.Tasks.Task<int> SaveRegistrationsAsync(System.Xml.XmlElement Registrations, System.Xml.XmlElement BalanceCorrections, System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated, int DataChanged, int ValidationChanged, int CorrectionRequestId);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SaveRegistrationsAndBalances", ReplyAction="TotalviewTRS/IWCFDatabase/SaveRegistrationsAndBalancesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SaveRegistrationsAndBalancesTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SaveRegistrationsAndBalancesTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        void SaveRegistrationsAndBalances(System.Xml.XmlElement Registrations, System.Xml.XmlElement Balances, System.Xml.XmlElement BalanceCorrections, System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated, int DataChanged, int ValidationChanged, int CorrectionRequestId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SaveRegistrationsAndBalances", ReplyAction="TotalviewTRS/IWCFDatabase/SaveRegistrationsAndBalancesResponse")]
         System.Threading.Tasks.Task SaveRegistrationsAndBalancesAsync(System.Xml.XmlElement Registrations, System.Xml.XmlElement Balances, System.Xml.XmlElement BalanceCorrections, System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated, int DataChanged, int ValidationChanged, int CorrectionRequestId);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SaveRegistrationsAndBalancesFromXElement", ReplyAction="TotalviewTRS/IWCFDatabase/SaveRegistrationsAndBalancesFromXElementResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SaveRegistrationsAndBalancesFromXElementTRSExceptionFau" +
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SaveRegistrationsAndBalancesFromXElementTRSExceptionFau" +
             "lt", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement SaveRegistrationsAndBalancesFromXElement(System.Xml.XmlElement Registratio);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SaveRegistrationsAndBalancesFromXElement", ReplyAction="TotalviewTRS/IWCFDatabase/SaveRegistrationsAndBalancesFromXElementResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> SaveRegistrationsAndBalancesFromXElementAsync(System.Xml.XmlElement Registratio);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/CalculateAlpha", ReplyAction="TotalviewTRS/IWCFDatabase/CalculateAlphaResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/CalculateAlphaTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/CalculateAlphaTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        void CalculateAlpha(System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/CalculateAlpha", ReplyAction="TotalviewTRS/IWCFDatabase/CalculateAlphaResponse")]
         System.Threading.Tasks.Task CalculateAlphaAsync(System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/CalculateAlphaForPeriod", ReplyAction="TotalviewTRS/IWCFDatabase/CalculateAlphaForPeriodResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/CalculateAlphaForPeriodTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/CalculateAlphaForPeriodTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        void CalculateAlphaForPeriod(System.DateTime StartDate, System.DateTime EndDate, int UserId, string Comment, int ModifyingUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/CalculateAlphaForPeriod", ReplyAction="TotalviewTRS/IWCFDatabase/CalculateAlphaForPeriodResponse")]
         System.Threading.Tasks.Task CalculateAlphaForPeriodAsync(System.DateTime StartDate, System.DateTime EndDate, int UserId, string Comment, int ModifyingUser);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/CalculateAlphaForPeriodWithSkip", ReplyAction="TotalviewTRS/IWCFDatabase/CalculateAlphaForPeriodWithSkipResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/CalculateAlphaForPeriodWithSkipTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/CalculateAlphaForPeriodWithSkipTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        void CalculateAlphaForPeriodWithSkip(System.DateTime StartDate, System.DateTime EndDate, int UserId, string Comment, int ModifyingUser, string SkipDays);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/CalculateAlphaForPeriodWithSkip", ReplyAction="TotalviewTRS/IWCFDatabase/CalculateAlphaForPeriodWithSkipResponse")]
         System.Threading.Tasks.Task CalculateAlphaForPeriodWithSkipAsync(System.DateTime StartDate, System.DateTime EndDate, int UserId, string Comment, int ModifyingUser, string SkipDays);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUserRights", ReplyAction="TotalviewTRS/IWCFDatabase/GetUserRightsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUserRightsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
-        System.Threading.Tasks.Task<TimerServerAPI.TRSUserRight[]> GetUserRightsAsync(int UserId);
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUserRightsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        TimeServerAPI.TRSUserRight[] GetUserRights(int UserId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUserRights", ReplyAction="TotalviewTRS/IWCFDatabase/GetUserRightsResponse")]
+        System.Threading.Tasks.Task<TimeServerAPI.TRSUserRight[]> GetUserRightsAsync(int UserId);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/HasServerDataChanged", ReplyAction="TotalviewTRS/IWCFDatabase/HasServerDataChangedResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/HasServerDataChangedTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
-        System.Threading.Tasks.Task<bool> HasServerDataChangedAsync(TimerServerAPI.TRSDatabaseDataChangedType ChangedType, System.DateTime Since);
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/HasServerDataChangedTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        bool HasServerDataChanged(TimeServerAPI.TRSDatabaseDataChangedType ChangedType, System.DateTime Since);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/HasServerDataChanged", ReplyAction="TotalviewTRS/IWCFDatabase/HasServerDataChangedResponse")]
+        System.Threading.Tasks.Task<bool> HasServerDataChangedAsync(TimeServerAPI.TRSDatabaseDataChangedType ChangedType, System.DateTime Since);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/RefreshToken", ReplyAction="TotalviewTRS/IWCFDatabase/RefreshTokenResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/RefreshTokenTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/RefreshTokenTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        string RefreshToken(string token);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/RefreshToken", ReplyAction="TotalviewTRS/IWCFDatabase/RefreshTokenResponse")]
         System.Threading.Tasks.Task<string> RefreshTokenAsync(string token);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetRequests", ReplyAction="TotalviewTRS/IWCFDatabase/GetRequestsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetRequestsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetRequestsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetRequests(int ResourceRecId, bool IncludeClosed);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetRequests", ReplyAction="TotalviewTRS/IWCFDatabase/GetRequestsResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetRequestsAsync(int ResourceRecId, bool IncludeClosed);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetCustomFields", ReplyAction="TotalviewTRS/IWCFDatabase/GetCustomFieldsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetCustomFieldsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetCustomFieldsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetCustomFields();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetCustomFields", ReplyAction="TotalviewTRS/IWCFDatabase/GetCustomFieldsResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetCustomFieldsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetRequest", ReplyAction="TotalviewTRS/IWCFDatabase/GetRequestResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetRequestTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetRequestTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetRequest(int RequestRecId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetRequest", ReplyAction="TotalviewTRS/IWCFDatabase/GetRequestResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetRequestAsync(int RequestRecId);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetActiveRequestsForResources", ReplyAction="TotalviewTRS/IWCFDatabase/GetActiveRequestsForResourcesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetActiveRequestsForResourcesTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetActiveRequestsForResourcesTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetActiveRequestsForResources(int[] UserIDs);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetActiveRequestsForResources", ReplyAction="TotalviewTRS/IWCFDatabase/GetActiveRequestsForResourcesResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetActiveRequestsForResourcesAsync(int[] UserIDs);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/CreateRequestFromXML", ReplyAction="TotalviewTRS/IWCFDatabase/CreateRequestFromXMLResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/CreateRequestFromXMLTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/CreateRequestFromXMLTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        int CreateRequestFromXML(System.Xml.XmlElement RequestDocument);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/CreateRequestFromXML", ReplyAction="TotalviewTRS/IWCFDatabase/CreateRequestFromXMLResponse")]
         System.Threading.Tasks.Task<int> CreateRequestFromXMLAsync(System.Xml.XmlElement RequestDocument);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SetRequestStatus", ReplyAction="TotalviewTRS/IWCFDatabase/SetRequestStatusResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SetRequestStatusTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SetRequestStatusTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        void SetRequestStatus(int RequestId, int NewStatus, string Comment, int MadeBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SetRequestStatus", ReplyAction="TotalviewTRS/IWCFDatabase/SetRequestStatusResponse")]
         System.Threading.Tasks.Task SetRequestStatusAsync(int RequestId, int NewStatus, string Comment, int MadeBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetTotalBalancesByDateAndResource", ReplyAction="TotalviewTRS/IWCFDatabase/GetTotalBalancesByDateAndResourceResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetTotalBalancesByDateAndResourceTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetTotalBalancesByDateAndResourceTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetTotalBalancesByDateAndResource(System.DateTime Date, int ResourceId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetTotalBalancesByDateAndResource", ReplyAction="TotalviewTRS/IWCFDatabase/GetTotalBalancesByDateAndResourceResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetTotalBalancesByDateAndResourceAsync(System.DateTime Date, int ResourceId);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetResourceDayLog", ReplyAction="TotalviewTRS/IWCFDatabase/GetResourceDayLogResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetResourceDayLogTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetResourceDayLogTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetResourceDayLog(System.DateTime Date, int ResourceId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetResourceDayLog", ReplyAction="TotalviewTRS/IWCFDatabase/GetResourceDayLogResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetResourceDayLogAsync(System.DateTime Date, int ResourceId);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetAlphaOmegaState", ReplyAction="TotalviewTRS/IWCFDatabase/GetAlphaOmegaStateResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetAlphaOmegaStateTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetAlphaOmegaStateTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetAlphaOmegaState(System.DateTime DateFrom, System.DateTime DateTo, int ResourceId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetAlphaOmegaState", ReplyAction="TotalviewTRS/IWCFDatabase/GetAlphaOmegaStateResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetAlphaOmegaStateAsync(System.DateTime DateFrom, System.DateTime DateTo, int ResourceId);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetExportState", ReplyAction="TotalviewTRS/IWCFDatabase/GetExportStateResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetExportStateTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
-        System.Threading.Tasks.Task<TimerServerAPI.TRSExportState[]> GetExportStateAsync(System.DateTime DateFrom, System.DateTime DateTo, int[] UserIDs);
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetExportStateTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        TimeServerAPI.TRSExportState[] GetExportState(System.DateTime DateFrom, System.DateTime DateTo, int[] UserIDs);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetExportState", ReplyAction="TotalviewTRS/IWCFDatabase/GetExportStateResponse")]
+        System.Threading.Tasks.Task<TimeServerAPI.TRSExportState[]> GetExportStateAsync(System.DateTime DateFrom, System.DateTime DateTo, int[] UserIDs);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUserAverageContractDayLength", ReplyAction="TotalviewTRS/IWCFDatabase/GetUserAverageContractDayLengthResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUserAverageContractDayLengthTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUserAverageContractDayLengthTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetUserAverageContractDayLength(System.DateTime VersionDate, int[] UserIDs);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUserAverageContractDayLength", ReplyAction="TotalviewTRS/IWCFDatabase/GetUserAverageContractDayLengthResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetUserAverageContractDayLengthAsync(System.DateTime VersionDate, int[] UserIDs);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUserAttachmentsDefinition", ReplyAction="TotalviewTRS/IWCFDatabase/GetUserAttachmentsDefinitionResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUserAttachmentsDefinitionTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUserAttachmentsDefinitionTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetUserAttachmentsDefinition(int ResourceID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUserAttachmentsDefinition", ReplyAction="TotalviewTRS/IWCFDatabase/GetUserAttachmentsDefinitionResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetUserAttachmentsDefinitionAsync(int ResourceID);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUsersAttachmentsDefinition", ReplyAction="TotalviewTRS/IWCFDatabase/GetUsersAttachmentsDefinitionResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUsersAttachmentsDefinitionTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUsersAttachmentsDefinitionTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetUsersAttachmentsDefinition(int[] ResourceID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUsersAttachmentsDefinition", ReplyAction="TotalviewTRS/IWCFDatabase/GetUsersAttachmentsDefinitionResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetUsersAttachmentsDefinitionAsync(int[] ResourceID);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUserAttachmentsData", ReplyAction="TotalviewTRS/IWCFDatabase/GetUserAttachmentsDataResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUserAttachmentsDataTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUserAttachmentsDataTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetUserAttachmentsData(int ResourceID, string StateID, string AttachmentID, string ParentFieldID, string ParentID, string UserData);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUserAttachmentsData", ReplyAction="TotalviewTRS/IWCFDatabase/GetUserAttachmentsDataResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetUserAttachmentsDataAsync(int ResourceID, string StateID, string AttachmentID, string ParentFieldID, string ParentID, string UserData);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetResetAtMidnigthStateRecId", ReplyAction="TotalviewTRS/IWCFDatabase/GetResetAtMidnigthStateRecIdResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetResetAtMidnigthStateRecIdTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetResetAtMidnigthStateRecIdTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        int GetResetAtMidnigthStateRecId();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetResetAtMidnigthStateRecId", ReplyAction="TotalviewTRS/IWCFDatabase/GetResetAtMidnigthStateRecIdResponse")]
         System.Threading.Tasks.Task<int> GetResetAtMidnigthStateRecIdAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetSumTable", ReplyAction="TotalviewTRS/IWCFDatabase/GetSumTableResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetSumTableTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetSumTableTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetSumTable(System.DateTime fromDate, System.DateTime toDate, int UserId, int[] WantedBalances);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetSumTable", ReplyAction="TotalviewTRS/IWCFDatabase/GetSumTableResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetSumTableAsync(System.DateTime fromDate, System.DateTime toDate, int UserId, int[] WantedBalances);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SQLToXElement", ReplyAction="TotalviewTRS/IWCFDatabase/SQLToXElementResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SQLToXElementTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SQLToXElementTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement SQLToXElement(string sql, string tableName, string recordName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SQLToXElement", ReplyAction="TotalviewTRS/IWCFDatabase/SQLToXElementResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> SQLToXElementAsync(string sql, string tableName, string recordName);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SetValidatedPeriodForUsers", ReplyAction="TotalviewTRS/IWCFDatabase/SetValidatedPeriodForUsersResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SetValidatedPeriodForUsersTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SetValidatedPeriodForUsersTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        void SetValidatedPeriodForUsers(System.DateTime DateFrom, System.DateTime DateTo, int[] UserIDs, int Validated, int ModifyingUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SetValidatedPeriodForUsers", ReplyAction="TotalviewTRS/IWCFDatabase/SetValidatedPeriodForUsersResponse")]
         System.Threading.Tasks.Task SetValidatedPeriodForUsersAsync(System.DateTime DateFrom, System.DateTime DateTo, int[] UserIDs, int Validated, int ModifyingUser);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SetValidatedDaysForUser", ReplyAction="TotalviewTRS/IWCFDatabase/SetValidatedDaysForUserResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SetValidatedDaysForUserTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SetValidatedDaysForUserTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        void SetValidatedDaysForUser(System.DateTime[] Days, int UserID, int Validated, int ModifyingUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SetValidatedDaysForUser", ReplyAction="TotalviewTRS/IWCFDatabase/SetValidatedDaysForUserResponse")]
         System.Threading.Tasks.Task SetValidatedDaysForUserAsync(System.DateTime[] Days, int UserID, int Validated, int ModifyingUser);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SetAdminNotificationSubscriptionList", ReplyAction="TotalviewTRS/IWCFDatabase/SetAdminNotificationSubscriptionListResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SetAdminNotificationSubscriptionListTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SetAdminNotificationSubscriptionListTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        void SetAdminNotificationSubscriptionList(int[] PersonRecIdList, int[] CustomFieldRecIdList, int UserID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SetAdminNotificationSubscriptionList", ReplyAction="TotalviewTRS/IWCFDatabase/SetAdminNotificationSubscriptionListResponse")]
         System.Threading.Tasks.Task SetAdminNotificationSubscriptionListAsync(int[] PersonRecIdList, int[] CustomFieldRecIdList, int UserID);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetAdminNotificationSubscriptionList", ReplyAction="TotalviewTRS/IWCFDatabase/GetAdminNotificationSubscriptionListResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetAdminNotificationSubscriptionListTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetAdminNotificationSubscriptionListTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetAdminNotificationSubscriptionList(int UserID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetAdminNotificationSubscriptionList", ReplyAction="TotalviewTRS/IWCFDatabase/GetAdminNotificationSubscriptionListResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetAdminNotificationSubscriptionListAsync(int UserID);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SetAdminRequestSubscriptionType", ReplyAction="TotalviewTRS/IWCFDatabase/SetAdminRequestSubscriptionTypeResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SetAdminRequestSubscriptionTypeTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SetAdminRequestSubscriptionTypeTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        void SetAdminRequestSubscriptionType(string subscriptionType, int subscriberid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SetAdminRequestSubscriptionType", ReplyAction="TotalviewTRS/IWCFDatabase/SetAdminRequestSubscriptionTypeResponse")]
         System.Threading.Tasks.Task SetAdminRequestSubscriptionTypeAsync(string subscriptionType, int subscriberid);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetAdminRequestSubscriptionType", ReplyAction="TotalviewTRS/IWCFDatabase/GetAdminRequestSubscriptionTypeResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetAdminRequestSubscriptionTypeTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetAdminRequestSubscriptionTypeTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetAdminRequestSubscriptionType(int subscriberid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetAdminRequestSubscriptionType", ReplyAction="TotalviewTRS/IWCFDatabase/GetAdminRequestSubscriptionTypeResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetAdminRequestSubscriptionTypeAsync(int subscriberid);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetAdminRequestSubscriptionTypeList", ReplyAction="TotalviewTRS/IWCFDatabase/GetAdminRequestSubscriptionTypeListResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetAdminRequestSubscriptionTypeListTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetAdminRequestSubscriptionTypeListTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetAdminRequestSubscriptionTypeList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetAdminRequestSubscriptionTypeList", ReplyAction="TotalviewTRS/IWCFDatabase/GetAdminRequestSubscriptionTypeListResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetAdminRequestSubscriptionTypeListAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUsersAgreementIntervals", ReplyAction="TotalviewTRS/IWCFDatabase/GetUsersAgreementIntervalsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUsersAgreementIntervalsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUsersAgreementIntervalsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetUsersAgreementIntervals(int[] userArray);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUsersAgreementIntervals", ReplyAction="TotalviewTRS/IWCFDatabase/GetUsersAgreementIntervalsResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetUsersAgreementIntervalsAsync(int[] userArray);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SaveRejectedRequestToLog", ReplyAction="TotalviewTRS/IWCFDatabase/SaveRejectedRequestToLogResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SaveRejectedRequestToLogTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SaveRejectedRequestToLogTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        void SaveRejectedRequestToLog(System.Xml.XmlElement Registrations, System.Xml.XmlElement Balances, System.Xml.XmlElement BalanceCorrections, System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated, int DataChanged, int ValidationChanged, int CorrectionRequestRejected, int CorrectionRequestId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SaveRejectedRequestToLog", ReplyAction="TotalviewTRS/IWCFDatabase/SaveRejectedRequestToLogResponse")]
         System.Threading.Tasks.Task SaveRejectedRequestToLogAsync(System.Xml.XmlElement Registrations, System.Xml.XmlElement Balances, System.Xml.XmlElement BalanceCorrections, System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated, int DataChanged, int ValidationChanged, int CorrectionRequestRejected, int CorrectionRequestId);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUserStatisticRights", ReplyAction="TotalviewTRS/IWCFDatabase/GetUserStatisticRightsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUserStatisticRightsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetUserStatisticRightsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetUserStatisticRights(int[] ResourceRecIds);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetUserStatisticRights", ReplyAction="TotalviewTRS/IWCFDatabase/GetUserStatisticRightsResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetUserStatisticRightsAsync(int[] ResourceRecIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SaveUserStatisticRights", ReplyAction="TotalviewTRS/IWCFDatabase/SaveUserStatisticRightsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SaveUserStatisticRightsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/SaveUserStatisticRightsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement SaveUserStatisticRights(System.Xml.XmlElement StatisticRights);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/SaveUserStatisticRights", ReplyAction="TotalviewTRS/IWCFDatabase/SaveUserStatisticRightsResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> SaveUserStatisticRightsAsync(System.Xml.XmlElement StatisticRights);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetStatisticRightsLogMaster", ReplyAction="TotalviewTRS/IWCFDatabase/GetStatisticRightsLogMasterResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetStatisticRightsLogMasterTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetStatisticRightsLogMasterTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetStatisticRightsLogMaster(int RequestingResourceRecId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetStatisticRightsLogMaster", ReplyAction="TotalviewTRS/IWCFDatabase/GetStatisticRightsLogMasterResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetStatisticRightsLogMasterAsync(int RequestingResourceRecId);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetAllTimeAccountGroupRegistrationSums", ReplyAction="TotalviewTRS/IWCFDatabase/GetAllTimeAccountGroupRegistrationSumsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetAllTimeAccountGroupRegistrationSumsTRSExceptionFault" +
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetAllTimeAccountGroupRegistrationSumsTRSExceptionFault" +
             "", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
-        System.Threading.Tasks.Task<TimerServerAPI.TimeAccountGroupRegistrationSums[]> GetAllTimeAccountGroupRegistrationSumsAsync(int[] resourceRecIds);
+        TimeServerAPI.TimeAccountGroupRegistrationSums[] GetAllTimeAccountGroupRegistrationSums(int[] resourceRecIds);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetAllTimeAccountGroupRegistrationSums", ReplyAction="TotalviewTRS/IWCFDatabase/GetAllTimeAccountGroupRegistrationSumsResponse")]
+        System.Threading.Tasks.Task<TimeServerAPI.TimeAccountGroupRegistrationSums[]> GetAllTimeAccountGroupRegistrationSumsAsync(int[] resourceRecIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetGlobalSettings", ReplyAction="TotalviewTRS/IWCFDatabase/GetGlobalSettingsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TimerServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetGlobalSettingsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        [System.ServiceModel.FaultContractAttribute(typeof(TimeServerAPI.TRSException), Action="TotalviewTRS/IWCFDatabase/GetGlobalSettingsTRSExceptionFault", Name="TRSException", Namespace="http://schemas.datacontract.org/2004/07/Formula.TRS.Server")]
+        System.Xml.XmlElement GetGlobalSettings();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="TotalviewTRS/IWCFDatabase/GetGlobalSettings", ReplyAction="TotalviewTRS/IWCFDatabase/GetGlobalSettingsResponse")]
         System.Threading.Tasks.Task<System.Xml.XmlElement> GetGlobalSettingsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    internal interface IWCFDatabaseChannel : TimerServerAPI.IWCFDatabase, System.ServiceModel.IClientChannel
+    internal interface IWCFDatabaseChannel : TimeServerAPI.IWCFDatabase, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    internal partial class WCFDatabaseClient : System.ServiceModel.ClientBase<TimerServerAPI.IWCFDatabase>, TimerServerAPI.IWCFDatabase
+    internal partial class WCFDatabaseClient : System.ServiceModel.ClientBase<TimeServerAPI.IWCFDatabase>, TimeServerAPI.IWCFDatabase
     {
         
         /// <summary>
@@ -701,9 +872,19 @@ namespace TimerServerAPI
         {
         }
         
+        public int GetServerVersion()
+        {
+            return base.Channel.GetServerVersion();
+        }
+        
         public System.Threading.Tasks.Task<int> GetServerVersionAsync()
         {
             return base.Channel.GetServerVersionAsync();
+        }
+        
+        public void ThrowTRSException(string Message)
+        {
+            base.Channel.ThrowTRSException(Message);
         }
         
         public System.Threading.Tasks.Task ThrowTRSExceptionAsync(string Message)
@@ -711,9 +892,19 @@ namespace TimerServerAPI
             return base.Channel.ThrowTRSExceptionAsync(Message);
         }
         
+        public string UserLogin(string UserName, string Password)
+        {
+            return base.Channel.UserLogin(UserName, Password);
+        }
+        
         public System.Threading.Tasks.Task<string> UserLoginAsync(string UserName, string Password)
         {
             return base.Channel.UserLoginAsync(UserName, Password);
+        }
+        
+        public string NetLogin(string UserName, string Domain)
+        {
+            return base.Channel.NetLogin(UserName, Domain);
         }
         
         public System.Threading.Tasks.Task<string> NetLoginAsync(string UserName, string Domain)
@@ -721,9 +912,19 @@ namespace TimerServerAPI
             return base.Channel.NetLoginAsync(UserName, Domain);
         }
         
-        public System.Threading.Tasks.Task<TimerServerAPI.AuthenticationOption> GetAuthenticationOptionAsync()
+        public TimeServerAPI.AuthenticationOption GetAuthenticationOption()
+        {
+            return base.Channel.GetAuthenticationOption();
+        }
+        
+        public System.Threading.Tasks.Task<TimeServerAPI.AuthenticationOption> GetAuthenticationOptionAsync()
         {
             return base.Channel.GetAuthenticationOptionAsync();
+        }
+        
+        public System.Xml.XmlElement GetResources()
+        {
+            return base.Channel.GetResources();
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetResourcesAsync()
@@ -731,9 +932,19 @@ namespace TimerServerAPI
             return base.Channel.GetResourcesAsync();
         }
         
+        public System.Xml.XmlElement GetStates()
+        {
+            return base.Channel.GetStates();
+        }
+        
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetStatesAsync()
         {
             return base.Channel.GetStatesAsync();
+        }
+        
+        public System.Xml.XmlElement GetUserDayRegistrations(System.DateTime date, int[] UserIDs)
+        {
+            return base.Channel.GetUserDayRegistrations(date, UserIDs);
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetUserDayRegistrationsAsync(System.DateTime date, int[] UserIDs)
@@ -741,9 +952,19 @@ namespace TimerServerAPI
             return base.Channel.GetUserDayRegistrationsAsync(date, UserIDs);
         }
         
+        public System.Xml.XmlElement GetUserDayRegistrationsSingleUser(System.DateTime fromDate, System.DateTime toDate, int UserID)
+        {
+            return base.Channel.GetUserDayRegistrationsSingleUser(fromDate, toDate, UserID);
+        }
+        
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetUserDayRegistrationsSingleUserAsync(System.DateTime fromDate, System.DateTime toDate, int UserID)
         {
             return base.Channel.GetUserDayRegistrationsSingleUserAsync(fromDate, toDate, UserID);
+        }
+        
+        public System.Xml.XmlElement GetStateGroupSettings(System.DateTime date, int UserId)
+        {
+            return base.Channel.GetStateGroupSettings(date, UserId);
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetStateGroupSettingsAsync(System.DateTime date, int UserId)
@@ -751,9 +972,19 @@ namespace TimerServerAPI
             return base.Channel.GetStateGroupSettingsAsync(date, UserId);
         }
         
+        public System.Xml.XmlElement GetAgreement(System.DateTime date, int UserId)
+        {
+            return base.Channel.GetAgreement(date, UserId);
+        }
+        
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetAgreementAsync(System.DateTime date, int UserId)
         {
             return base.Channel.GetAgreementAsync(date, UserId);
+        }
+        
+        public System.Xml.XmlElement GetCountTypeSettings(System.DateTime date, int UserId)
+        {
+            return base.Channel.GetCountTypeSettings(date, UserId);
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetCountTypeSettingsAsync(System.DateTime date, int UserId)
@@ -761,9 +992,19 @@ namespace TimerServerAPI
             return base.Channel.GetCountTypeSettingsAsync(date, UserId);
         }
         
+        public System.Xml.XmlElement GetParameters(System.DateTime date, int UserId)
+        {
+            return base.Channel.GetParameters(date, UserId);
+        }
+        
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetParametersAsync(System.DateTime date, int UserId)
         {
             return base.Channel.GetParametersAsync(date, UserId);
+        }
+        
+        public string GetParameter(string parameterName)
+        {
+            return base.Channel.GetParameter(parameterName);
         }
         
         public System.Threading.Tasks.Task<string> GetParameterAsync(string parameterName)
@@ -771,9 +1012,19 @@ namespace TimerServerAPI
             return base.Channel.GetParameterAsync(parameterName);
         }
         
+        public System.Xml.XmlElement GetStateBalanceSettings(System.DateTime date, int UserId)
+        {
+            return base.Channel.GetStateBalanceSettings(date, UserId);
+        }
+        
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetStateBalanceSettingsAsync(System.DateTime date, int UserId)
         {
             return base.Channel.GetStateBalanceSettingsAsync(date, UserId);
+        }
+        
+        public System.Xml.XmlElement GetReBalanceSettings(System.DateTime date, int UserId)
+        {
+            return base.Channel.GetReBalanceSettings(date, UserId);
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetReBalanceSettingsAsync(System.DateTime date, int UserId)
@@ -781,9 +1032,19 @@ namespace TimerServerAPI
             return base.Channel.GetReBalanceSettingsAsync(date, UserId);
         }
         
+        public System.Xml.XmlElement GetBalanceDefinitions()
+        {
+            return base.Channel.GetBalanceDefinitions();
+        }
+        
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetBalanceDefinitionsAsync()
         {
             return base.Channel.GetBalanceDefinitionsAsync();
+        }
+        
+        public int SaveRegistrations(System.Xml.XmlElement Registrations, System.Xml.XmlElement BalanceCorrections, System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated, int DataChanged, int ValidationChanged, int CorrectionRequestId)
+        {
+            return base.Channel.SaveRegistrations(Registrations, BalanceCorrections, date, UserId, Comment, ModifyingUser, Validated, DataChanged, ValidationChanged, CorrectionRequestId);
         }
         
         public System.Threading.Tasks.Task<int> SaveRegistrationsAsync(System.Xml.XmlElement Registrations, System.Xml.XmlElement BalanceCorrections, System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated, int DataChanged, int ValidationChanged, int CorrectionRequestId)
@@ -791,9 +1052,19 @@ namespace TimerServerAPI
             return base.Channel.SaveRegistrationsAsync(Registrations, BalanceCorrections, date, UserId, Comment, ModifyingUser, Validated, DataChanged, ValidationChanged, CorrectionRequestId);
         }
         
+        public void SaveRegistrationsAndBalances(System.Xml.XmlElement Registrations, System.Xml.XmlElement Balances, System.Xml.XmlElement BalanceCorrections, System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated, int DataChanged, int ValidationChanged, int CorrectionRequestId)
+        {
+            base.Channel.SaveRegistrationsAndBalances(Registrations, Balances, BalanceCorrections, date, UserId, Comment, ModifyingUser, Validated, DataChanged, ValidationChanged, CorrectionRequestId);
+        }
+        
         public System.Threading.Tasks.Task SaveRegistrationsAndBalancesAsync(System.Xml.XmlElement Registrations, System.Xml.XmlElement Balances, System.Xml.XmlElement BalanceCorrections, System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated, int DataChanged, int ValidationChanged, int CorrectionRequestId)
         {
             return base.Channel.SaveRegistrationsAndBalancesAsync(Registrations, Balances, BalanceCorrections, date, UserId, Comment, ModifyingUser, Validated, DataChanged, ValidationChanged, CorrectionRequestId);
+        }
+        
+        public System.Xml.XmlElement SaveRegistrationsAndBalancesFromXElement(System.Xml.XmlElement Registratio)
+        {
+            return base.Channel.SaveRegistrationsAndBalancesFromXElement(Registratio);
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> SaveRegistrationsAndBalancesFromXElementAsync(System.Xml.XmlElement Registratio)
@@ -801,9 +1072,19 @@ namespace TimerServerAPI
             return base.Channel.SaveRegistrationsAndBalancesFromXElementAsync(Registratio);
         }
         
+        public void CalculateAlpha(System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated)
+        {
+            base.Channel.CalculateAlpha(date, UserId, Comment, ModifyingUser, Validated);
+        }
+        
         public System.Threading.Tasks.Task CalculateAlphaAsync(System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated)
         {
             return base.Channel.CalculateAlphaAsync(date, UserId, Comment, ModifyingUser, Validated);
+        }
+        
+        public void CalculateAlphaForPeriod(System.DateTime StartDate, System.DateTime EndDate, int UserId, string Comment, int ModifyingUser)
+        {
+            base.Channel.CalculateAlphaForPeriod(StartDate, EndDate, UserId, Comment, ModifyingUser);
         }
         
         public System.Threading.Tasks.Task CalculateAlphaForPeriodAsync(System.DateTime StartDate, System.DateTime EndDate, int UserId, string Comment, int ModifyingUser)
@@ -811,19 +1092,39 @@ namespace TimerServerAPI
             return base.Channel.CalculateAlphaForPeriodAsync(StartDate, EndDate, UserId, Comment, ModifyingUser);
         }
         
+        public void CalculateAlphaForPeriodWithSkip(System.DateTime StartDate, System.DateTime EndDate, int UserId, string Comment, int ModifyingUser, string SkipDays)
+        {
+            base.Channel.CalculateAlphaForPeriodWithSkip(StartDate, EndDate, UserId, Comment, ModifyingUser, SkipDays);
+        }
+        
         public System.Threading.Tasks.Task CalculateAlphaForPeriodWithSkipAsync(System.DateTime StartDate, System.DateTime EndDate, int UserId, string Comment, int ModifyingUser, string SkipDays)
         {
             return base.Channel.CalculateAlphaForPeriodWithSkipAsync(StartDate, EndDate, UserId, Comment, ModifyingUser, SkipDays);
         }
         
-        public System.Threading.Tasks.Task<TimerServerAPI.TRSUserRight[]> GetUserRightsAsync(int UserId)
+        public TimeServerAPI.TRSUserRight[] GetUserRights(int UserId)
+        {
+            return base.Channel.GetUserRights(UserId);
+        }
+        
+        public System.Threading.Tasks.Task<TimeServerAPI.TRSUserRight[]> GetUserRightsAsync(int UserId)
         {
             return base.Channel.GetUserRightsAsync(UserId);
         }
         
-        public System.Threading.Tasks.Task<bool> HasServerDataChangedAsync(TimerServerAPI.TRSDatabaseDataChangedType ChangedType, System.DateTime Since)
+        public bool HasServerDataChanged(TimeServerAPI.TRSDatabaseDataChangedType ChangedType, System.DateTime Since)
+        {
+            return base.Channel.HasServerDataChanged(ChangedType, Since);
+        }
+        
+        public System.Threading.Tasks.Task<bool> HasServerDataChangedAsync(TimeServerAPI.TRSDatabaseDataChangedType ChangedType, System.DateTime Since)
         {
             return base.Channel.HasServerDataChangedAsync(ChangedType, Since);
+        }
+        
+        public string RefreshToken(string token)
+        {
+            return base.Channel.RefreshToken(token);
         }
         
         public System.Threading.Tasks.Task<string> RefreshTokenAsync(string token)
@@ -831,9 +1132,19 @@ namespace TimerServerAPI
             return base.Channel.RefreshTokenAsync(token);
         }
         
+        public System.Xml.XmlElement GetRequests(int ResourceRecId, bool IncludeClosed)
+        {
+            return base.Channel.GetRequests(ResourceRecId, IncludeClosed);
+        }
+        
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetRequestsAsync(int ResourceRecId, bool IncludeClosed)
         {
             return base.Channel.GetRequestsAsync(ResourceRecId, IncludeClosed);
+        }
+        
+        public System.Xml.XmlElement GetCustomFields()
+        {
+            return base.Channel.GetCustomFields();
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetCustomFieldsAsync()
@@ -841,9 +1152,19 @@ namespace TimerServerAPI
             return base.Channel.GetCustomFieldsAsync();
         }
         
+        public System.Xml.XmlElement GetRequest(int RequestRecId)
+        {
+            return base.Channel.GetRequest(RequestRecId);
+        }
+        
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetRequestAsync(int RequestRecId)
         {
             return base.Channel.GetRequestAsync(RequestRecId);
+        }
+        
+        public System.Xml.XmlElement GetActiveRequestsForResources(int[] UserIDs)
+        {
+            return base.Channel.GetActiveRequestsForResources(UserIDs);
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetActiveRequestsForResourcesAsync(int[] UserIDs)
@@ -851,9 +1172,19 @@ namespace TimerServerAPI
             return base.Channel.GetActiveRequestsForResourcesAsync(UserIDs);
         }
         
+        public int CreateRequestFromXML(System.Xml.XmlElement RequestDocument)
+        {
+            return base.Channel.CreateRequestFromXML(RequestDocument);
+        }
+        
         public System.Threading.Tasks.Task<int> CreateRequestFromXMLAsync(System.Xml.XmlElement RequestDocument)
         {
             return base.Channel.CreateRequestFromXMLAsync(RequestDocument);
+        }
+        
+        public void SetRequestStatus(int RequestId, int NewStatus, string Comment, int MadeBy)
+        {
+            base.Channel.SetRequestStatus(RequestId, NewStatus, Comment, MadeBy);
         }
         
         public System.Threading.Tasks.Task SetRequestStatusAsync(int RequestId, int NewStatus, string Comment, int MadeBy)
@@ -861,9 +1192,19 @@ namespace TimerServerAPI
             return base.Channel.SetRequestStatusAsync(RequestId, NewStatus, Comment, MadeBy);
         }
         
+        public System.Xml.XmlElement GetTotalBalancesByDateAndResource(System.DateTime Date, int ResourceId)
+        {
+            return base.Channel.GetTotalBalancesByDateAndResource(Date, ResourceId);
+        }
+        
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetTotalBalancesByDateAndResourceAsync(System.DateTime Date, int ResourceId)
         {
             return base.Channel.GetTotalBalancesByDateAndResourceAsync(Date, ResourceId);
+        }
+        
+        public System.Xml.XmlElement GetResourceDayLog(System.DateTime Date, int ResourceId)
+        {
+            return base.Channel.GetResourceDayLog(Date, ResourceId);
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetResourceDayLogAsync(System.DateTime Date, int ResourceId)
@@ -871,14 +1212,29 @@ namespace TimerServerAPI
             return base.Channel.GetResourceDayLogAsync(Date, ResourceId);
         }
         
+        public System.Xml.XmlElement GetAlphaOmegaState(System.DateTime DateFrom, System.DateTime DateTo, int ResourceId)
+        {
+            return base.Channel.GetAlphaOmegaState(DateFrom, DateTo, ResourceId);
+        }
+        
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetAlphaOmegaStateAsync(System.DateTime DateFrom, System.DateTime DateTo, int ResourceId)
         {
             return base.Channel.GetAlphaOmegaStateAsync(DateFrom, DateTo, ResourceId);
         }
         
-        public System.Threading.Tasks.Task<TimerServerAPI.TRSExportState[]> GetExportStateAsync(System.DateTime DateFrom, System.DateTime DateTo, int[] UserIDs)
+        public TimeServerAPI.TRSExportState[] GetExportState(System.DateTime DateFrom, System.DateTime DateTo, int[] UserIDs)
+        {
+            return base.Channel.GetExportState(DateFrom, DateTo, UserIDs);
+        }
+        
+        public System.Threading.Tasks.Task<TimeServerAPI.TRSExportState[]> GetExportStateAsync(System.DateTime DateFrom, System.DateTime DateTo, int[] UserIDs)
         {
             return base.Channel.GetExportStateAsync(DateFrom, DateTo, UserIDs);
+        }
+        
+        public System.Xml.XmlElement GetUserAverageContractDayLength(System.DateTime VersionDate, int[] UserIDs)
+        {
+            return base.Channel.GetUserAverageContractDayLength(VersionDate, UserIDs);
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetUserAverageContractDayLengthAsync(System.DateTime VersionDate, int[] UserIDs)
@@ -886,9 +1242,19 @@ namespace TimerServerAPI
             return base.Channel.GetUserAverageContractDayLengthAsync(VersionDate, UserIDs);
         }
         
+        public System.Xml.XmlElement GetUserAttachmentsDefinition(int ResourceID)
+        {
+            return base.Channel.GetUserAttachmentsDefinition(ResourceID);
+        }
+        
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetUserAttachmentsDefinitionAsync(int ResourceID)
         {
             return base.Channel.GetUserAttachmentsDefinitionAsync(ResourceID);
+        }
+        
+        public System.Xml.XmlElement GetUsersAttachmentsDefinition(int[] ResourceID)
+        {
+            return base.Channel.GetUsersAttachmentsDefinition(ResourceID);
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetUsersAttachmentsDefinitionAsync(int[] ResourceID)
@@ -896,9 +1262,19 @@ namespace TimerServerAPI
             return base.Channel.GetUsersAttachmentsDefinitionAsync(ResourceID);
         }
         
+        public System.Xml.XmlElement GetUserAttachmentsData(int ResourceID, string StateID, string AttachmentID, string ParentFieldID, string ParentID, string UserData)
+        {
+            return base.Channel.GetUserAttachmentsData(ResourceID, StateID, AttachmentID, ParentFieldID, ParentID, UserData);
+        }
+        
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetUserAttachmentsDataAsync(int ResourceID, string StateID, string AttachmentID, string ParentFieldID, string ParentID, string UserData)
         {
             return base.Channel.GetUserAttachmentsDataAsync(ResourceID, StateID, AttachmentID, ParentFieldID, ParentID, UserData);
+        }
+        
+        public int GetResetAtMidnigthStateRecId()
+        {
+            return base.Channel.GetResetAtMidnigthStateRecId();
         }
         
         public System.Threading.Tasks.Task<int> GetResetAtMidnigthStateRecIdAsync()
@@ -906,9 +1282,19 @@ namespace TimerServerAPI
             return base.Channel.GetResetAtMidnigthStateRecIdAsync();
         }
         
+        public System.Xml.XmlElement GetSumTable(System.DateTime fromDate, System.DateTime toDate, int UserId, int[] WantedBalances)
+        {
+            return base.Channel.GetSumTable(fromDate, toDate, UserId, WantedBalances);
+        }
+        
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetSumTableAsync(System.DateTime fromDate, System.DateTime toDate, int UserId, int[] WantedBalances)
         {
             return base.Channel.GetSumTableAsync(fromDate, toDate, UserId, WantedBalances);
+        }
+        
+        public System.Xml.XmlElement SQLToXElement(string sql, string tableName, string recordName)
+        {
+            return base.Channel.SQLToXElement(sql, tableName, recordName);
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> SQLToXElementAsync(string sql, string tableName, string recordName)
@@ -916,9 +1302,19 @@ namespace TimerServerAPI
             return base.Channel.SQLToXElementAsync(sql, tableName, recordName);
         }
         
+        public void SetValidatedPeriodForUsers(System.DateTime DateFrom, System.DateTime DateTo, int[] UserIDs, int Validated, int ModifyingUser)
+        {
+            base.Channel.SetValidatedPeriodForUsers(DateFrom, DateTo, UserIDs, Validated, ModifyingUser);
+        }
+        
         public System.Threading.Tasks.Task SetValidatedPeriodForUsersAsync(System.DateTime DateFrom, System.DateTime DateTo, int[] UserIDs, int Validated, int ModifyingUser)
         {
             return base.Channel.SetValidatedPeriodForUsersAsync(DateFrom, DateTo, UserIDs, Validated, ModifyingUser);
+        }
+        
+        public void SetValidatedDaysForUser(System.DateTime[] Days, int UserID, int Validated, int ModifyingUser)
+        {
+            base.Channel.SetValidatedDaysForUser(Days, UserID, Validated, ModifyingUser);
         }
         
         public System.Threading.Tasks.Task SetValidatedDaysForUserAsync(System.DateTime[] Days, int UserID, int Validated, int ModifyingUser)
@@ -926,9 +1322,19 @@ namespace TimerServerAPI
             return base.Channel.SetValidatedDaysForUserAsync(Days, UserID, Validated, ModifyingUser);
         }
         
+        public void SetAdminNotificationSubscriptionList(int[] PersonRecIdList, int[] CustomFieldRecIdList, int UserID)
+        {
+            base.Channel.SetAdminNotificationSubscriptionList(PersonRecIdList, CustomFieldRecIdList, UserID);
+        }
+        
         public System.Threading.Tasks.Task SetAdminNotificationSubscriptionListAsync(int[] PersonRecIdList, int[] CustomFieldRecIdList, int UserID)
         {
             return base.Channel.SetAdminNotificationSubscriptionListAsync(PersonRecIdList, CustomFieldRecIdList, UserID);
+        }
+        
+        public System.Xml.XmlElement GetAdminNotificationSubscriptionList(int UserID)
+        {
+            return base.Channel.GetAdminNotificationSubscriptionList(UserID);
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetAdminNotificationSubscriptionListAsync(int UserID)
@@ -936,9 +1342,19 @@ namespace TimerServerAPI
             return base.Channel.GetAdminNotificationSubscriptionListAsync(UserID);
         }
         
+        public void SetAdminRequestSubscriptionType(string subscriptionType, int subscriberid)
+        {
+            base.Channel.SetAdminRequestSubscriptionType(subscriptionType, subscriberid);
+        }
+        
         public System.Threading.Tasks.Task SetAdminRequestSubscriptionTypeAsync(string subscriptionType, int subscriberid)
         {
             return base.Channel.SetAdminRequestSubscriptionTypeAsync(subscriptionType, subscriberid);
+        }
+        
+        public System.Xml.XmlElement GetAdminRequestSubscriptionType(int subscriberid)
+        {
+            return base.Channel.GetAdminRequestSubscriptionType(subscriberid);
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetAdminRequestSubscriptionTypeAsync(int subscriberid)
@@ -946,9 +1362,19 @@ namespace TimerServerAPI
             return base.Channel.GetAdminRequestSubscriptionTypeAsync(subscriberid);
         }
         
+        public System.Xml.XmlElement GetAdminRequestSubscriptionTypeList()
+        {
+            return base.Channel.GetAdminRequestSubscriptionTypeList();
+        }
+        
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetAdminRequestSubscriptionTypeListAsync()
         {
             return base.Channel.GetAdminRequestSubscriptionTypeListAsync();
+        }
+        
+        public System.Xml.XmlElement GetUsersAgreementIntervals(int[] userArray)
+        {
+            return base.Channel.GetUsersAgreementIntervals(userArray);
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetUsersAgreementIntervalsAsync(int[] userArray)
@@ -956,9 +1382,19 @@ namespace TimerServerAPI
             return base.Channel.GetUsersAgreementIntervalsAsync(userArray);
         }
         
+        public void SaveRejectedRequestToLog(System.Xml.XmlElement Registrations, System.Xml.XmlElement Balances, System.Xml.XmlElement BalanceCorrections, System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated, int DataChanged, int ValidationChanged, int CorrectionRequestRejected, int CorrectionRequestId)
+        {
+            base.Channel.SaveRejectedRequestToLog(Registrations, Balances, BalanceCorrections, date, UserId, Comment, ModifyingUser, Validated, DataChanged, ValidationChanged, CorrectionRequestRejected, CorrectionRequestId);
+        }
+        
         public System.Threading.Tasks.Task SaveRejectedRequestToLogAsync(System.Xml.XmlElement Registrations, System.Xml.XmlElement Balances, System.Xml.XmlElement BalanceCorrections, System.DateTime date, int UserId, string Comment, int ModifyingUser, int Validated, int DataChanged, int ValidationChanged, int CorrectionRequestRejected, int CorrectionRequestId)
         {
             return base.Channel.SaveRejectedRequestToLogAsync(Registrations, Balances, BalanceCorrections, date, UserId, Comment, ModifyingUser, Validated, DataChanged, ValidationChanged, CorrectionRequestRejected, CorrectionRequestId);
+        }
+        
+        public System.Xml.XmlElement GetUserStatisticRights(int[] ResourceRecIds)
+        {
+            return base.Channel.GetUserStatisticRights(ResourceRecIds);
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetUserStatisticRightsAsync(int[] ResourceRecIds)
@@ -966,9 +1402,19 @@ namespace TimerServerAPI
             return base.Channel.GetUserStatisticRightsAsync(ResourceRecIds);
         }
         
+        public System.Xml.XmlElement SaveUserStatisticRights(System.Xml.XmlElement StatisticRights)
+        {
+            return base.Channel.SaveUserStatisticRights(StatisticRights);
+        }
+        
         public System.Threading.Tasks.Task<System.Xml.XmlElement> SaveUserStatisticRightsAsync(System.Xml.XmlElement StatisticRights)
         {
             return base.Channel.SaveUserStatisticRightsAsync(StatisticRights);
+        }
+        
+        public System.Xml.XmlElement GetStatisticRightsLogMaster(int RequestingResourceRecId)
+        {
+            return base.Channel.GetStatisticRightsLogMaster(RequestingResourceRecId);
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetStatisticRightsLogMasterAsync(int RequestingResourceRecId)
@@ -976,9 +1422,19 @@ namespace TimerServerAPI
             return base.Channel.GetStatisticRightsLogMasterAsync(RequestingResourceRecId);
         }
         
-        public System.Threading.Tasks.Task<TimerServerAPI.TimeAccountGroupRegistrationSums[]> GetAllTimeAccountGroupRegistrationSumsAsync(int[] resourceRecIds)
+        public TimeServerAPI.TimeAccountGroupRegistrationSums[] GetAllTimeAccountGroupRegistrationSums(int[] resourceRecIds)
+        {
+            return base.Channel.GetAllTimeAccountGroupRegistrationSums(resourceRecIds);
+        }
+        
+        public System.Threading.Tasks.Task<TimeServerAPI.TimeAccountGroupRegistrationSums[]> GetAllTimeAccountGroupRegistrationSumsAsync(int[] resourceRecIds)
         {
             return base.Channel.GetAllTimeAccountGroupRegistrationSumsAsync(resourceRecIds);
+        }
+        
+        public System.Xml.XmlElement GetGlobalSettings()
+        {
+            return base.Channel.GetGlobalSettings();
         }
         
         public System.Threading.Tasks.Task<System.Xml.XmlElement> GetGlobalSettingsAsync()
