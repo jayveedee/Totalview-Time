@@ -1,4 +1,4 @@
-﻿using Totalview_Time_Smartclient.MVVM.Model.Services;
+﻿using Totalview_Time_Smartclient.Common.Services;
 
 namespace Totalview_Time_Smartclient;
 
@@ -15,8 +15,6 @@ public static class MauiProgram
             {
                 fonts = configService.ConfigureAppFonts(fonts);
             });
-
-        StorageService.Instance.UpdateStorageAsync();
 
         return builder.Build();
     }

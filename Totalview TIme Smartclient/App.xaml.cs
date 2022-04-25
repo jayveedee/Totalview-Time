@@ -1,4 +1,4 @@
-﻿using Totalview_Time_Smartclient.MVVM.Model.Services;
+﻿using Totalview_Time_Smartclient.Common.Services;
 
 namespace Totalview_Time_Smartclient;
 
@@ -12,5 +12,16 @@ public partial class App : Application
         AnalyticsService.Instance.TrackEvent(Event.Test, Category.AnalyticsTest, "Test");
 
         MainPage = new AppShell();
+    }
+
+    // Workaround MAUI crash when back pressed with nothing in navigation backstack
+    protected override Window CreateWindow(IActivationState activationState)
+    {
+        if (MainPage == null)
+        {
+            MainPage = new AppShell();
+        }
+
+        return base.CreateWindow(activationState);
     }
 }

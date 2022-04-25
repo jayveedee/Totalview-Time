@@ -1,13 +1,68 @@
 ﻿<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:Pages="clr-namespace:Totalview_Time_Smartclient"
+       xmlns:controls="clr-namespace:Totalview_Time_Smartclient"
+       xmlns:viewmodels="clr-namespace:Totalview_Time_Smartclient.Common.ViewModel"
        x:Class="Totalview_Time_Smartclient.AppShell"
-       Title="AppShell"
-       BackgroundColor="{DynamicResource SecondaryColor}">
-
+       Title="AppShell">
+    <Shell.BindingContext>
+        <viewmodels:AppShellViewModel></viewmodels:AppShellViewModel>
+    </Shell.BindingContext>
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ShellStyleDefault" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{DynamicResource PrimaryColor}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="{DynamicResource SecondaryColor}" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource PrimaryColor}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White" />
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#B0B6BD" />
+                <Setter Property="Shell.TabBarTitleColor" Value="White" />
+            </Style>
+            <Style BasedOn="{StaticResource ShellStyleDefault}" TargetType="TabBar" />
+            <Style BasedOn="{StaticResource ShellStyleDefault}" TargetType="FlyoutItem" />
+        </ResourceDictionary>
+    </Shell.Resources>
 
     <ShellItem Route="LoginServerDetails" FlyoutItemIsVisible="False">
-        <ShellContent ContentTemplate="{DataTemplate Pages:LoginServerDetails}"></ShellContent>
+        <ShellContent ContentTemplate="{DataTemplate controls:LoginServerDetails}"></ShellContent>
     </ShellItem>
+
+    <TabBar Route="NavigationTabs" >
+        <Tab Route="TimeAccounts" Title="Time Accounts" Icon="time_accounts">
+            <ShellContent ContentTemplate="{DataTemplate controls:TimeAccounts}"></ShellContent>
+        </Tab>
+        <Tab Route="Overview" Title="Overview" Icon="overview">
+            <ShellContent ContentTemplate="{DataTemplate controls:Overview}"></ShellContent>
+        </Tab>
+        <Tab Route="Inquiry" Title="Inquiries" Icon="inquiries">
+            <ShellContent ContentTemplate="{DataTemplate controls:Inquiry}"></ShellContent>
+        </Tab>
+    </TabBar>
+
+    <MenuItem Text="Logout" IconImageSource="logout" Command="{Binding LogoutCommand}">
+        <Shell.MenuItemTemplate>
+            <DataTemplate>
+                <Grid BackgroundColor="Red" HeightRequest="45">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" 
+                           Margin="10"
+                           Source="{Binding Icon}"
+                           HeightRequest="25"/>
+                    <Label Grid.Column="1"
+                           Text="{Binding Text}"
+                           TextColor="White"
+                           FontSize="{DynamicResource largeFontSize}"
+                           FontFamily="RobotoRegular"
+                           VerticalTextAlignment="Center"
+                           VerticalOptions="Center"/>
+                </Grid>
+            </DataTemplate>
+        </Shell.MenuItemTemplate>
+    </MenuItem>
 
 </Shell>

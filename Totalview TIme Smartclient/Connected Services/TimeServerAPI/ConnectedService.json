@@ -11,7 +11,7 @@
     "namespaceMappings": [
       "*, TimeServerAPI"
     ],
-    "sync": true,
+    "sync": false,
     "targetFramework": "net6.0",
     "typeReuseMode": "None"
   }
