@@ -11,10 +11,10 @@
 		<EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
 
 		<!-- Display name -->
-		<ApplicationTitle>Totalview Time Smartclient</ApplicationTitle>
+		<ApplicationTitle>Totalview Time</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.exirpit.Totalview_Time_Smartclient</ApplicationId>
+		<ApplicationId>com.exirpit.Totalview_Time</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationVersion>1</ApplicationVersion>
@@ -31,11 +31,11 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\appicon.svg" ForegroundFile="Resources\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\appicon.svg" ForegroundFile="Resources\appiconfg.svg" Color="#002D62" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\appiconfg.svg" Color="#512BD4" />
-
+    <MauiSplashScreen Include="Resources\appiconfg.svg" Color="#002D62" />
+    
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 
@@ -71,21 +71,36 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\appicon.svg" />
+	  <None Remove="Resources\appiconfg.svg" />
+	  <None Remove="Resources\Images\inquiries.svg" />
+	  <None Remove="Resources\Images\Logout.svg" />
+	  <None Remove="Resources\Images\overview.svg" />
+	  <None Remove="Resources\Images\time_accounts.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview3" />
 	  <PackageReference Include="IdentityModel" Version="6.0.0" />
 	  <PackageReference Include="IdentityModel.OidcClient" Version="5.0.0" />
 	  <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.5.0" />
 	  <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.5.0" />
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-	  <PackageReference Include="System.ServiceModel.Duplex" Version="4.8.*" />
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.17.0" />
+	  <PackageReference Include="System.ServiceModel.Duplex" Version="4.9.0" />
 	  <PackageReference Include="System.ServiceModel.Federation" Version="4.8.*" />
-	  <PackageReference Include="System.ServiceModel.Http" Version="4.8.*" />
-	  <PackageReference Include="System.ServiceModel.NetTcp" Version="4.8.*" />
-	  <PackageReference Include="System.ServiceModel.Security" Version="4.8.*" />
+	  <PackageReference Include="System.ServiceModel.Http" Version="4.9.0" />
+	  <PackageReference Include="System.ServiceModel.NetTcp" Version="4.9.0" />
+	  <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
+	  <PackageReference Include="System.ServiceModel.Security" Version="4.9.0" />
 	  <PackageReference Include="Xamarin.CommunityToolkit.Markup.MauiCompat" Version="1.3.2" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="MVVM\View\Templates\LoginTitleGrid.xaml.cs">
+	  <Compile Update="Common\View\Controls\AppShell\FlyoutHeader.xaml.cs">
+	    <DependentUpon>FlyoutHeader.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Common\View\Controls\LoginTitleGrid.xaml.cs">
 	    <DependentUpon>LoginTitleGrid.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
@@ -94,25 +109,38 @@
 	  <MauiXaml Update="AppShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVM\View\Login\LoginServerDetails.xaml">
+	  <MauiXaml Update="Common\View\Controls\AppShell\FlyoutHeader.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVM\View\Login\LoginUserDetails.xaml">
+	  <MauiXaml Update="Common\View\Login\LoginServerDetails.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVM\View\NavigationTabs\TimeAccounts.xaml">
+	  <MauiXaml Update="Common\View\Login\LoginUserDetails.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVM\View\Templates\LoginLearnMoreGrid.xaml">
+	  <MauiXaml Update="Common\View\NavigationTabs\Inquiry.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVM\View\Templates\LoginTitleGrid.xaml">
+	  <MauiXaml Update="Common\View\NavigationTabs\Overview.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Common\View\NavigationTabs\TimeAccounts.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Common\View\Controls\LoginLearnMoreGrid.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Common\View\Controls\LoginTitleGrid.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Folder Include="Platforms\iOS\Model\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiSplashScreen Include="Resources\appiconfg.svg" />
 	</ItemGroup>
 
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
