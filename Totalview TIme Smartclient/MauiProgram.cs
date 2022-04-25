@@ -16,8 +16,6 @@ public static class MauiProgram
                 fonts = configService.ConfigureAppFonts(fonts);
             });
 
-        StorageService.Instance.UpdateStorageAsync();
-
         return builder.Build();
     }
 }
