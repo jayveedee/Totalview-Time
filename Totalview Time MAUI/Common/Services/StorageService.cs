@@ -1,8 +1,8 @@
-﻿using Totalview_Time_Smartclient.Common.Model;
-using Totalview_Time_Smartclient.Common.Services.Authentication;
-using Totalview_Time_Smartclient.Common.Util;
+﻿using Totalview_Time_MAUI.Common.Model;
+using Totalview_Time_MAUI.Common.Services.Authentication;
+using Totalview_Time_MAUI.Common.Util;
 
-namespace Totalview_Time_Smartclient.Common.Services;
+namespace Totalview_Time_MAUI.Common.Services;
 
 internal interface IStorageService
 {

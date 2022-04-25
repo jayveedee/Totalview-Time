@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 
-namespace Totalview_Time_Smartclient.Common.ViewModel.Controls;
+namespace Totalview_Time_MAUI.Common.ViewModel.Controls;
 
 public partial class LoginLearnMoreGridViewModel : BaseViewModel
 {

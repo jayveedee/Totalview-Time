@@ -4,7 +4,7 @@ using Microsoft.AppCenter.Crashes;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 
-namespace Totalview_Time_Smartclient.Common.Services;
+namespace Totalview_Time_MAUI.Common.Services;
 
 internal interface IAnalyticsService
 {

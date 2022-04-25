@@ -1,6 +1,6 @@
-using Totalview_Time_Smartclient.Common.ViewModel;
+using Totalview_Time_MAUI.Common.ViewModel;
 
-namespace Totalview_Time_Smartclient;
+namespace Totalview_Time_MAUI;
 
 public partial class AppShell : Shell
 {

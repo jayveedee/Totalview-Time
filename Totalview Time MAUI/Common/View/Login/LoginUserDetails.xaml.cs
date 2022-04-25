@@ -1,7 +1,7 @@
-﻿using Totalview_Time_Smartclient.Common.Services;
-using Totalview_Time_Smartclient.Common.ViewModel.Login;
+﻿using Totalview_Time_MAUI.Common.Services;
+using Totalview_Time_MAUI.Common.ViewModel.Login;
 
-namespace Totalview_Time_Smartclient;
+namespace Totalview_Time_MAUI;
 
 public partial class LoginUserDetails : ContentPage
 {

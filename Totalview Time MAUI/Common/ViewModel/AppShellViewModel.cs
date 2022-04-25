@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using Totalview_Time_Smartclient.Common.Services;
-using Totalview_Time_Smartclient.Common.Services.Authentication;
+using Totalview_Time_MAUI.Common.Services;
+using Totalview_Time_MAUI.Common.Services.Authentication;
 
-namespace Totalview_Time_Smartclient.Common.ViewModel;
+namespace Totalview_Time_MAUI.Common.ViewModel;
 
 public partial class AppShellViewModel : BaseViewModel
 {

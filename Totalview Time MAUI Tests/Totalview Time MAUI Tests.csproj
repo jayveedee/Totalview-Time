@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Totalview Time Smartclient\Totalview Time MAUI.csproj" />
+    <ProjectReference Include="..\Totalview Time MAUI\Totalview Time MAUI.csproj" />
   </ItemGroup>
 
 </Project>

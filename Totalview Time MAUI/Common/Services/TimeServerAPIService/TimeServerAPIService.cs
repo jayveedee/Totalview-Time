@@ -1,7 +1,7 @@
 ﻿using TimeServerAPI;
-using Totalview_Time_Smartclient.Common.Util;
+using Totalview_Time_MAUI.Common.Util;
 
-namespace Totalview_Time_Smartclient.Common.Services.TimeServerAPIService;
+namespace Totalview_Time_MAUI.Common.Services.TimeServerAPIService;
 
 internal interface ITimeServerAPIService
 {

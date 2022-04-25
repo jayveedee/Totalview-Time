@@ -1,7 +1,7 @@
 ﻿<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Totalview_Time_Smartclient"
-             x:Class="Totalview_Time_Smartclient.App">
+             xmlns:local="clr-namespace:Totalview_Time_MAUI"
+             x:Class="Totalview_Time_MAUI.App">
     <Application.Resources>
         <ResourceDictionary>
 

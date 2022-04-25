@@ -1,7 +1,6 @@
 ﻿using Xunit;
-//using Totalview_Time_Smartclient.MVVM.Model.Services.Authentication;
 
-namespace Totalview_Time_Smartclient_Tests;
+namespace Totalview_Time_MAUI_Tests;
 
 public class Test
 {
@@ -9,6 +8,6 @@ public class Test
     [Fact]
     public void Tester()
     {
-        //AuthentcationBrowser browser = new AuthentcationBrowser();
+        
     }
 }

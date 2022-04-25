@@ -1,4 +1,4 @@
-﻿namespace Totalview_Time_Smartclient.Common.Services;
+﻿namespace Totalview_Time_MAUI.Common.Services;
 
 internal interface IConfigurationService
 {

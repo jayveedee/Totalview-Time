@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
-namespace Totalview_Time_Smartclient.Common.ViewModel.Login;
+namespace Totalview_Time_MAUI.Common.ViewModel.Login;
 
 public partial class LoginUserDetailsViewModel : BaseViewModel
 {

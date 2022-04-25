@@ -1,8 +1,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:Totalview_Time_Smartclient"
-             xmlns:viewmodels="clr-namespace:Totalview_Time_Smartclient.Common.ViewModel.Login"
-             x:Class="Totalview_Time_Smartclient.LoginUserDetails"
+             xmlns:controls="clr-namespace:Totalview_Time_MAUI"
+             xmlns:viewmodels="clr-namespace:Totalview_Time_MAUI.Common.ViewModel.Login"
+             x:Class="Totalview_Time_MAUI.LoginUserDetails"
              Title="LoginUserDetails"
              Style="{StaticResource ContentPageLogin}">
     <ContentPage.BindingContext>

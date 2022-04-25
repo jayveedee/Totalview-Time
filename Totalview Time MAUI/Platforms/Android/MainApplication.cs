@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Totalview_Time_Smartclient;
+namespace Totalview_Time_MAUI;
 
 [Application]
 public class MainApplication : MauiApplication

@@ -1,4 +1,4 @@
-namespace Totalview_Time_Smartclient;
+namespace Totalview_Time_MAUI;
 
 public partial class LoginTitleGrid : Grid
 {

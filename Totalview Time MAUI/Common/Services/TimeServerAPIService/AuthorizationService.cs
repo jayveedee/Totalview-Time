@@ -4,9 +4,9 @@ using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 using TimeServerAPI;
-using Totalview_Time_Smartclient.Common.Model;
+using Totalview_Time_MAUI.Common.Model;
 
-namespace Totalview_Time_Smartclient.Common.Services.TimeServerAPIService;
+namespace Totalview_Time_MAUI.Common.Services.TimeServerAPIService;
 
 internal class AuthorizationService
 {

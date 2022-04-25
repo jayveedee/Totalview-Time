@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Totalview_Time_Smartclient.Common.Util;
+namespace Totalview_Time_MAUI.Common.Util;
 
 internal static class BudgetDiscoveryUtil
 {

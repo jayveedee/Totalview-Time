@@ -1,11 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Diagnostics;
-using Totalview_Time_Smartclient.Common.Services;
-using Totalview_Time_Smartclient.Common.Services.Authentication;
-using Totalview_Time_Smartclient.Common.Util;
+using Totalview_Time_MAUI.Common.Services;
+using Totalview_Time_MAUI.Common.Services.Authentication;
+using Totalview_Time_MAUI.Common.Util;
 
-namespace Totalview_Time_Smartclient.Common.ViewModel.Login;
+namespace Totalview_Time_MAUI.Common.ViewModel.Login;
 
 public partial class LoginServerDetailsViewModel : BaseViewModel
 {

@@ -1,4 +1,4 @@
-﻿namespace Totalview_Time_Smartclient.Common.Model;
+﻿namespace Totalview_Time_MAUI.Common.Model;
 
 internal record User
 {

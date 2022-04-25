@@ -1,7 +1,7 @@
 ﻿using IdentityModel.OidcClient;
 using System.Diagnostics;
 
-namespace Totalview_Time_Smartclient.Common.Services.Authentication;
+namespace Totalview_Time_MAUI.Common.Services.Authentication;
 
 internal interface IAuthenticationService
 {

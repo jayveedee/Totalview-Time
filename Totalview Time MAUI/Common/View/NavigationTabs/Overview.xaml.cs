@@ -1,6 +1,6 @@
-using Totalview_Time_Smartclient.Common.Services;
+using Totalview_Time_MAUI.Common.Services;
 
-namespace Totalview_Time_Smartclient;
+namespace Totalview_Time_MAUI;
 
 public partial class Overview : ContentPage
 {
