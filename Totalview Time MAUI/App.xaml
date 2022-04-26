@@ -25,9 +25,6 @@
             <!-- STYLES -->
             <Style x:Key="ContentPageDefault" TargetType="ContentPage">
                 <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}"></Setter>
-                <Setter Property="Shell.NavBarIsVisible" Value="True"></Setter>
-                <Setter Property="Shell.TabBarIsVisible" Value="True"></Setter>
-                <Setter Property="Shell.FlyoutBehavior" Value="Flyout"></Setter>
             </Style>
 
             <Style x:Key="ContentPageLogin" TargetType="ContentPage">

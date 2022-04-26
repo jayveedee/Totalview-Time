@@ -13,15 +13,4 @@ public partial class App : Application
 
         MainPage = new AppShell();
     }
-
-    // Workaround MAUI crash when back pressed with nothing in navigation backstack
-    protected override Window CreateWindow(IActivationState activationState)
-    {
-        if (MainPage == null)
-        {
-            MainPage = new AppShell();
-        }
-
-        return base.CreateWindow(activationState);
-    }
 }

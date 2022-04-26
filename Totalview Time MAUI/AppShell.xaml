@@ -26,11 +26,15 @@
     </Shell.Resources>
 
 
-    <ShellItem Route="LoginServerDetails" FlyoutItemIsVisible="False">
+    <ShellItem Route="LoginServerDetails">
         <ShellContent ContentTemplate="{DataTemplate controls:LoginServerDetails}"></ShellContent>
     </ShellItem>
 
-    <TabBar Route="NavigationTabs" >
+    <ShellItem Route="LoginUserDetails">
+        <ShellContent ContentTemplate="{DataTemplate controls:LoginUserDetails}"></ShellContent>
+    </ShellItem>
+
+    <TabBar Route="NavigationTabs" Shell.FlyoutBehavior="Flyout">
         <Tab Route="TimeAccounts" Title="Time Accounts" Icon="time_accounts">
             <ShellContent ContentTemplate="{DataTemplate controls:TimeAccounts}"></ShellContent>
         </Tab>
