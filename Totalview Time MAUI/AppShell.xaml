@@ -25,12 +25,11 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-
-    <ShellItem Route="LoginServerDetails">
+    <ShellItem Route="LoginServerDetails" FlyoutItemIsVisible="False">
         <ShellContent ContentTemplate="{DataTemplate controls:LoginServerDetails}"></ShellContent>
     </ShellItem>
 
-    <ShellItem Route="LoginUserDetails">
+    <ShellItem Route="LoginUserDetails" FlyoutItemIsVisible="False">
         <ShellContent ContentTemplate="{DataTemplate controls:LoginUserDetails}"></ShellContent>
     </ShellItem>
 
