@@ -23,7 +23,7 @@
             <x:Double x:Key="smallLineCornerRadius">15</x:Double>
 
             <!-- STYLES -->
-            <Style x:Key="ContentPageDefault" TargetType="ContentPage">
+            <Style x:Key="ContentPageTabsDefault" TargetType="ContentPage">
                 <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}"></Setter>
                 <Setter Property="Shell.NavBarIsVisible" Value="True"></Setter>
                 <Setter Property="Shell.TabBarIsVisible" Value="True"></Setter>
@@ -33,6 +33,13 @@
             <Style x:Key="ContentPageLogin" TargetType="ContentPage">
                 <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}"></Setter>
                 <Setter Property="Shell.NavBarIsVisible" Value="False"></Setter>
+                <Setter Property="Shell.TabBarIsVisible" Value="False"></Setter>
+                <Setter Property="Shell.FlyoutBehavior" Value="Disabled"></Setter>
+            </Style>
+
+            <Style x:Key="ContentPageDefault" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}"></Setter>
+                <Setter Property="Shell.NavBarIsVisible" Value="True"></Setter>
                 <Setter Property="Shell.TabBarIsVisible" Value="False"></Setter>
                 <Setter Property="Shell.FlyoutBehavior" Value="Disabled"></Setter>
             </Style>

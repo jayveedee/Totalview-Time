@@ -1,5 +1,5 @@
 ﻿using TimeServerAPI;
-using Totalview_Time_MAUI.Common.Util;
+using Totalview_Time_MAUI.Common.Model.TimeRegistration;
 
 namespace Totalview_Time_MAUI.Common.Services.TimeServerAPIService;
 
@@ -7,6 +7,7 @@ internal interface ITimeServerAPIService
 {
     void Initialize(WCFDatabaseClient apiClient);
     void GetAgreements(DateTime date, int userId);
+    Task<List<Registration>> GetTimeRegistrations();
 }
 
 internal class TimeServerAPIService : ITimeServerAPIService
@@ -32,5 +33,11 @@ internal class TimeServerAPIService : ITimeServerAPIService
     public async void GetAgreements(DateTime date, int userId)
     {
         var agreement = await _apiClient.GetAgreementAsync(date, userId);
+        throw new NotImplementedException();
+    }
+
+    public Task<List<Registration>> GetTimeRegistrations()
+    {
+        throw new NotImplementedException();
     }
 }

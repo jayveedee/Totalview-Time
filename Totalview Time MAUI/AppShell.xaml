@@ -45,6 +45,8 @@
         </Tab>
     </TabBar>
 
+    <ShellContent ContentTemplate="{DataTemplate controls:StateDetails}" Route="StateDetails" FlyoutItemIsVisible="False"></ShellContent>
+
     <MenuItem Text="Logout" IconImageSource="logout" Command="{Binding LogoutCommand}">
         <Shell.MenuItemTemplate>
             <DataTemplate>

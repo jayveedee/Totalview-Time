@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace Totalview_TIme_Smartclient
+namespace Totalview_Time_MAUI
 {
     public class Program
     {

@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace Totalview_TIme_Smartclient
+namespace Totalview_Time_MAUI
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

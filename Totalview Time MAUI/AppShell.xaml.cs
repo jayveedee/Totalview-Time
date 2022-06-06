@@ -10,10 +10,22 @@ public partial class AppShell : Shell
 		InitializeComponent();
 
         viewModel = new AppShellViewModel();
+
+        AddRoutes();
     }
 
     protected override void OnAppearing()
     {
         viewModel.DetermineLoginRoute();
+    }
+
+    private void AddRoutes()
+    {
+        Routing.RegisterRoute(nameof(LoginServerDetails), typeof(LoginServerDetails));
+        Routing.RegisterRoute(nameof(LoginUserDetails), typeof(LoginUserDetails));
+        Routing.RegisterRoute(nameof(TimeAccounts), typeof(TimeAccounts));
+        Routing.RegisterRoute(nameof(Overview), typeof(Overview));
+        Routing.RegisterRoute(nameof(Inquiry), typeof(Inquiry));
+        Routing.RegisterRoute(nameof(StateDetails), typeof(StateDetails));
     }
 }

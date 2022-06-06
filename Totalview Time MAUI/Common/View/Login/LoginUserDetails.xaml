@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
         <!--ROW 0 SECTION-->
         <StackLayout Grid.Row="0">
-            <controls:LoginTitleGrid></controls:LoginTitleGrid>
+            <controls:TitleGrid></controls:TitleGrid>
         </StackLayout>
         <!--ROW 1 SECTION-->
         <StackLayout Grid.Row="1" VerticalOptions="Center">
@@ -104,6 +104,6 @@
             </Label>
         </StackLayout>
         <!--ROW 3 SECTION-->
-        <controls:LoginLearnMoreGrid Grid.Row="3"></controls:LoginLearnMoreGrid>
+        <controls:LearnMoreGrid Grid.Row="3"></controls:LearnMoreGrid>
     </Grid>
 </ContentPage>

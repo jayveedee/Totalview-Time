@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Totalview_Time_MAUI.LearnMoreGrid" Collapsed="true">
+    <Position X="25.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\View\Controls\Login\LearnMoreGrid.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.TitleGrid" Collapsed="true">
+    <Position X="34.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\View\Controls\Login\TitleGrid.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.RegistrationBarGrid" Collapsed="true">
+    <Position X="32.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQQAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Common\View\Controls\NavigationTabs\Overview\RegistrationBarGrid.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.LoginServerDetails" Collapsed="true">
+    <Position X="27.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\View\Login\LoginServerDetails.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.LoginUserDetails" Collapsed="true">
+    <Position X="29" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAQAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\View\Login\LoginUserDetails.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.StateDetails" Collapsed="true">
+    <Position X="34.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\View\NavigationTabs\State\StateDetails.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Inquiry" Collapsed="true">
+    <Position X="34.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\View\NavigationTabs\Inquiry.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Overview" Collapsed="true">
+    <Position X="29" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\View\NavigationTabs\Overview.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.TimeAccounts" Collapsed="true">
+    <Position X="29" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\View\NavigationTabs\TimeAccounts.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.AuthenticationActivity" Collapsed="true">
+    <Position X="30.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platforms\Android\Model\Authentication\AuthenticationBrowser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.MainActivity" Collapsed="true">
+    <Position X="30.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAIAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platforms\Android\MainActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.MainApplication" Collapsed="true">
+    <Position X="32.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platforms\Android\MainApplication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.App" Collapsed="true">
+    <Position X="27.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.AppShell" Collapsed="true">
+    <Position X="29" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAQAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AppShell.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.MauiProgram" Collapsed="true">
+    <Position X="34.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MauiProgram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.Services.Authentication.AuthenticationService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAACCAAAABAAAQAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Common\Services\Authentication\AuthenticationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.Services.Authentication.OidcService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Common\Services\Authentication\OpenIdService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.Services.Authentication.OidcBrowser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Services\Authentication\OpenIdService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.Services.Authentication.RefreshSessionService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAgAAAgAAgAAAAQAAEAAAAAAAAACQCAAAAgAAA=</HashCode>
+      <FileName>Common\Services\Authentication\RefreshSessionService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.Services.TimeRegistrationFormat.TimeRegistrationFormatService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Services\TimeRegistrationFormat\TimeRegistrationFormatService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.Services.TimeServerAPIService.AuthorizationService" Collapsed="true">
+    <Position X="27.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Services\TimeServerAPI\AuthorizationService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.Services.TimeServerAPIService.AuthorizationClientMessageInspector" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAIAAAAAAIAAIAAAAAAAAA=</HashCode>
+      <FileName>Common\Services\TimeServerAPI\AuthorizationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.Services.TimeServerAPIService.AuthorizationBehavior" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAQAACAAAgAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Common\Services\TimeServerAPI\AuthorizationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.Services.TimeServerAPIService.TimeServerAPIService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAEAAAAABAAAAAQAAAAAAAEAA=</HashCode>
+      <FileName>Common\Services\TimeServerAPI\TimeServerAPIService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.Services.AnalyticsService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAgAAAAAAAAAABBAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Common\Services\AnalyticsService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.Services.ConfigurationService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACBAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Services\ConfigurationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.Services.StorageService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAEAQAAAAAAiAAAAAAAAAARAAAAAIAAQAAAAAAAgAA=</HashCode>
+      <FileName>Common\Services\StorageService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.Util.BudgetDiscoveryUtil" Collapsed="true">
+    <Position X="29" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAQAIAA=</HashCode>
+      <FileName>Common\Util\BudgetDiscoveryUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.Util.DummyDataUtil" Collapsed="true">
+    <Position X="32.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAIAAAAACAAAAAAAAAAAIAAAAIAABA=</HashCode>
+      <FileName>Common\Util\DummyDataUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.Util.StorageUtil" Collapsed="true">
+    <Position X="27.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAgAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Util\StorageUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.ViewModel.Controls.NavigationTabs.Overview.RegistrationBarGridViewmodel">
+    <Position X="3.5" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ViewModel\Controls\NavigationTabs\Overview\RegistrationBarGridViewmodel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.ViewModel.Controls.LoginLearnMoreGridViewModel">
+    <Position X="6.75" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Common\ViewModel\Controls\LoginLearnMoreGridViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.ViewModel.Login.LoginServerDetailsViewModel">
+    <Position X="10" Y="2.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AQAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Common\ViewModel\Login\LoginServerDetailsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.ViewModel.Login.LoginUserDetailsViewModel">
+    <Position X="13.5" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAABAgAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Common\ViewModel\Login\LoginUserDetailsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.ViewModel.NavigationTabs.State.StateDetailsViewModel">
+    <Position X="16.5" Y="2.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEGAAACAABAAAABUAEBAAAAAAAAAA=</HashCode>
+      <FileName>Common\ViewModel\NavigationTabs\StateDetails\StateDetailsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.ViewModel.NavigationTabs.OverviewViewModel">
+    <Position X="20.25" Y="2.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAwAAAAAAAAAAAgAkAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ViewModel\NavigationTabs\OverviewViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.ViewModel.AppShellViewModel">
+    <Position X="0.5" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Common\ViewModel\AppShellViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Totalview_Time_MAUI.Common.ViewModel.BaseViewModel">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ViewModel\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Totalview_Time_MAUI.Common.Services.Authentication.IAuthenticationService" Collapsed="true">
+    <Position X="27.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAACCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Services\Authentication\AuthenticationService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Totalview_Time_MAUI.Common.Services.Authentication.IOidcService" Collapsed="true">
+    <Position X="30.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Services\Authentication\OpenIdService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Totalview_Time_MAUI.Common.Services.Authentication.IRefreshSessionService" Collapsed="true">
+    <Position X="32.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAACAAAAAAgAAA=</HashCode>
+      <FileName>Common\Services\Authentication\RefreshSessionService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Totalview_Time_MAUI.Common.Services.TimeRegistrationFormat.ITimeRegistrationFormatService" Collapsed="true">
+    <Position X="25.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Services\TimeRegistrationFormat\TimeRegistrationFormatService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Totalview_Time_MAUI.Common.Services.TimeServerAPIService.ITimeServerAPIService" Collapsed="true">
+    <Position X="27.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAEAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Common\Services\TimeServerAPI\TimeServerAPIService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Totalview_Time_MAUI.Common.Services.IAnalyticsService" Collapsed="true">
+    <Position X="25.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAgAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Services\AnalyticsService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Totalview_Time_MAUI.Common.Services.IConfigurationService" Collapsed="true">
+    <Position X="29" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Services\ConfigurationService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Totalview_Time_MAUI.Common.Services.IStorageService" Collapsed="true">
+    <Position X="34.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAQAAAAAAiAAAAAAAAAABAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Services\StorageService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Totalview_Time_MAUI.Common.Model.TimeRegistration.EditState" Collapsed="true">
+    <Position X="27.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Model\TimeRegistration\Registration.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Totalview_Time_MAUI.Common.Model.TimeRegistration.TimeAccount" Collapsed="true">
+    <Position X="30.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACCAAAAAAIAAAABAARAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Model\TimeRegistration\State.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Totalview_Time_MAUI.Common.Services.Event" Collapsed="true">
+    <Position X="29" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAIAAAAAAACAAAQAQ=</HashCode>
+      <FileName>Common\Services\AnalyticsService.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Totalview_Time_MAUI.Common.Services.Category" Collapsed="true">
+    <Position X="25.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAiAAAgAAAAAEQAIACTGAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Common\Services\AnalyticsService.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

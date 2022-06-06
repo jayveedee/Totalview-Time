@@ -3,7 +3,7 @@
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace Totalview_TIme_Smartclient.WinUI
+namespace Totalview_Time_MAUI.WinUI
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
