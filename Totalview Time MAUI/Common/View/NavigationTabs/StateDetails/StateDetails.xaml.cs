@@ -1,4 +1,5 @@
 using CommunityToolkit.Maui.Views;
+using Totalview_Time_MAUI.Common.Model.TimeManagement;
 using Totalview_Time_MAUI.Common.Services;
 using Totalview_Time_MAUI.Common.ViewModel.NavigationTabs.StateDetails;
 
@@ -37,7 +38,7 @@ public partial class StateDetails : ContentPage
     {
         base.OnNavigatedTo(args);
 
-		if (viewModel.registration.Accessibility == Common.Model.TimeRegistration.EditState.Open)
+		if (viewModel.timeRegistration.Accessibility == RegistrationStatus.Open)
         {
 			LockLockedImage.IsVisible = false;
 			editDisabledImageButton.IsVisible = false;

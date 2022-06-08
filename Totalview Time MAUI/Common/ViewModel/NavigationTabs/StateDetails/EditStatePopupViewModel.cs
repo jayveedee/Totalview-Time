@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Totalview_Time_MAUI.Common.Model.TimeRegistration;
+using Totalview_Time_MAUI.Common.Model.TimeManagement;
 using Totalview_Time_MAUI.Common.Services;
 using Totalview_Time_MAUI.Common.Util;
 
@@ -10,9 +10,9 @@ namespace Totalview_Time_MAUI.Common.ViewModel.NavigationTabs.StateDetails;
 internal partial class EditStatePopupViewModel : BaseViewModel
 {
     [ObservableProperty]
-    public List<State> states;
+    public List<TimeState> states;
     [ObservableProperty]
-    public State selectedState;
+    public TimeState selectedState;
     [ObservableProperty]
     public TimeSpan startTime;
     [ObservableProperty]
@@ -21,10 +21,10 @@ internal partial class EditStatePopupViewModel : BaseViewModel
     public string descriptionText;
     [ObservableProperty]
     public string extraText;
-    private Popup popup;
-    private Registration registration;
-    private TimeSpan defaultStartTime;
-    private TimeSpan defaultEndTime;
+    private readonly Popup popup;
+    private readonly TimeRegistration registration;
+    private readonly TimeSpan defaultStartTime;
+    private readonly TimeSpan defaultEndTime;
 
     public EditStatePopupViewModel()
     {
@@ -32,11 +32,13 @@ internal partial class EditStatePopupViewModel : BaseViewModel
         defaultEndTime = endTime;
     }
 
-    public EditStatePopupViewModel(Registration registration, EditStatePopup popup)
+    public EditStatePopupViewModel(TimeRegistration registration, EditStatePopup popup)
     {
         this.registration = registration;
-        states = DummyDataUtil.CreateStateList();
         this.popup = popup;
+        states = DummyDataUtil.CreateStateList();
+        defaultStartTime = startTime;
+        defaultEndTime = endTime;
     }
 
     [ICommand]
@@ -130,35 +132,49 @@ internal partial class EditStatePopupViewModel : BaseViewModel
         }
 
         bool multipleStates = false;
-        List<State> extraStates = new List<State>();
+        List<TimeState> overlappingStates = new List<TimeState>();
+        List<TimeState> modifiedStates = registration.States;
         for (int i = 0; i < registration.States.Count; i++)
         {
             var registeredState = registration.States[i];
+            var modifiedState = modifiedStates[i];
 
             var registeredStateStartTime = registeredState.StartDate.TimeOfDay;
             var registeredStateEndTime = registeredState.EndDate.TimeOfDay;
+            var modifiedStateStartTime = modifiedState.StartDate.TimeOfDay;
+            var modifiedStateEndTime = modifiedState.EndDate.TimeOfDay;
 
+            // Newly created state starts in or exactly when the current state starts
             if ((startTime >= registeredStateStartTime && (startTime < registeredStateEndTime || registeredStateEndTime.TotalMilliseconds == 0)) 
                 || (startTime < registeredStateStartTime && (startTime < registeredStateEndTime || registeredStateEndTime.TotalMilliseconds == 0)))
             {
+                // Newly created state ends after the current state end
                 if (endTime > registeredStateEndTime && registeredStateEndTime.TotalMilliseconds != 0)
                 {
-                    extraStates.Add(registeredState);
+                    overlappingStates.Add(registeredState);
                     multipleStates = true;
                 }
+                // Newly created state's end is within the current state's endtime
                 else if ((endTime <= registeredStateEndTime || registeredStateEndTime.TotalMilliseconds == 0) && (endTime > registeredStateStartTime || endTime.TotalMilliseconds == 0))
                 {
+                    // There were multiple state overlaps
                     if (multipleStates)
                     {
-                        extraStates.Add(registeredState);
+                        overlappingStates.Add(registeredState);
                     }
+                    // Only a single state overlap was found
                     else
                     {
                         var stateCautionText = $"The state [{registeredState.Title}, {registeredState.StartTime} - {registeredState.EndTime}] needs to be modified\n";
                         await DisplayCautionAlert("State overlap", $"{stateCautionText}");
+                        overlappingStates.Add(registeredState);
+
+                        
+
                         break;
                     }
                 }
+                // The last state in the registration was also overlapping with the newly created state
                 else if (multipleStates)
                 {
                     break;
@@ -168,12 +184,22 @@ internal partial class EditStatePopupViewModel : BaseViewModel
         if (multipleStates)
         {
             string extraStateCautionText = "";
-            for (int j = 0; j < extraStates.Count; j++)
+            for (int j = 0; j < overlappingStates.Count; j++)
             {
-                var extraState = extraStates[j];
+                var extraState = overlappingStates[j];
                 extraStateCautionText += $"The state [{extraState.Title}, {extraState.StartTime} - {extraState.EndTime}] needs to be modified\n";
             }
             await DisplayCautionAlert("State overlap", $"{extraStateCautionText}");
+        }
+
+        if (overlappingStates.Count > 0)
+        {
+            bool result = await DisplayCautionAlert("State creation action", "You are about to replace the overlapping states with the new state, are you sure you want to proceed?", true);
+            if (!result)
+            {
+                return false;
+            }
+            
         }
 
         return true;

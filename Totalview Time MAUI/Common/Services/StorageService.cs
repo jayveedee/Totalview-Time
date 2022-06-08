@@ -1,5 +1,5 @@
 ﻿using Totalview_Time_MAUI.Common.Model;
-using Totalview_Time_MAUI.Common.Model.TimeRegistration;
+using Totalview_Time_MAUI.Common.Model.TimeManagement;
 using Totalview_Time_MAUI.Common.Services.Authentication;
 using Totalview_Time_MAUI.Common.Util;
 
@@ -84,7 +84,7 @@ internal record Storage
     public AuthCredentials AuthCredentials;
     public OidcOptions OidcOptions;
     public User User;
-    public List<Registration> TimeRegistrations;
+    public List<TimeRegistration> TimeRegistrations;
 
     public Storage() { }
 }

@@ -1,5 +1,5 @@
 using Totalview_Time_MAUI.Common.ViewModel.Controls.NavigationTabs.Overview;
-using Totalview_Time_MAUI.Common.Model.TimeRegistration;
+using Totalview_Time_MAUI.Common.Model.TimeManagement;
 
 namespace Totalview_Time_MAUI;
 
@@ -15,14 +15,14 @@ public partial class RegistrationBarGrid : Grid
 
 	public static readonly BindableProperty RegistrationStatesProperty = BindableProperty.Create(
 		nameof(RegistrationStates),
-		typeof(List<State>),
+		typeof(List<TimeState>),
 		typeof(RegistrationBarGrid),
 		null,
 		BindingMode.TwoWay);
 
 	public object RegistrationStates
     {
-		get => (List<State>)GetValue(RegistrationStatesProperty);
+		get => (List<TimeState>)GetValue(RegistrationStatesProperty);
 		set => SetValue(RegistrationStatesProperty, value);
     }
 }

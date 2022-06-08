@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Totalview_Time_MAUI.Common.ViewModel.NavigationTabs"
-             xmlns:models="clr-namespace:Totalview_Time_MAUI.Common.Model.TimeRegistration"
+             xmlns:models="clr-namespace:Totalview_Time_MAUI.Common.Model.TimeManagement"
              xmlns:controls="clr-namespace:Totalview_Time_MAUI"
              x:Class="Totalview_Time_MAUI.Overview"
              Style="{StaticResource ContentPageTabsDefault}">
@@ -18,7 +18,7 @@
               SeparatorVisibility="None"
               HasUnevenRows="True">
         <ListView.ItemTemplate>
-            <DataTemplate x:DataType="models:Registration">
+            <DataTemplate x:DataType="models:TimeRegistration">
                 <ViewCell>
                     <StackLayout Orientation="Vertical">
                         <Label TextColor="{DynamicResource PrimaryColor}" Margin="40,0,40,0"

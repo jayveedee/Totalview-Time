@@ -1,9 +1,6 @@
 using CommunityToolkit.Maui.Views;
 using Totalview_Time_MAUI.Common.Services;
-using Totalview_Time_MAUI.Common.Model.TimeRegistration;
-using System.Collections.ObjectModel;
-using MvvmHelpers;
-using CommunityToolkit.Mvvm.ComponentModel;
+using Totalview_Time_MAUI.Common.Model.TimeManagement;
 using Totalview_Time_MAUI.Common.ViewModel.NavigationTabs.StateDetails;
 
 namespace Totalview_Time_MAUI;
@@ -11,7 +8,7 @@ namespace Totalview_Time_MAUI;
 public partial class EditStatePopup : Popup
 {
 	private EditStatePopupViewModel viewModel;
-	public EditStatePopup(Registration registration)
+	public EditStatePopup(TimeRegistration registration)
 	{
 		InitializeComponent();
 		viewModel = new EditStatePopupViewModel(registration, this);

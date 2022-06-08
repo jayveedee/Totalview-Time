@@ -1,23 +1,23 @@
 ﻿using System.Globalization;
-using Totalview_Time_MAUI.Common.Model.TimeRegistration;
+using Totalview_Time_MAUI.Common.Model.TimeManagement;
 
 namespace Totalview_Time_MAUI.Common.Services.TimeRegistrationFormat;
 
 internal interface ITimeRegistrationFormatService
 {
-    List<OverviewFormat> SortRegistrationsByWeekNumber(List<Registration> unsortedList);
+    List<OverviewFormat> SortRegistrationsByWeekNumber(List<TimeRegistration> unsortedList);
 }
 
 internal class TimeRegistrationFormatService : ITimeRegistrationFormatService
 {
-    public List<OverviewFormat> SortRegistrationsByWeekNumber(List<Registration> unsortedList)
+    public List<OverviewFormat> SortRegistrationsByWeekNumber(List<TimeRegistration> unsortedList)
     {
         var sortedList = new List<OverviewFormat>();
         for (int i = 0; i < unsortedList.Count; i++)
         {
             var registration = unsortedList[i];
             var weekNumber = ISOWeek.GetWeekOfYear(registration.DateCreated);
-            var listOfRegistrationsInWeek = new List<Registration>();
+            var listOfRegistrationsInWeek = new List<TimeRegistration>();
 
             for (int j = 0; j < unsortedList.Count; j++)
             {

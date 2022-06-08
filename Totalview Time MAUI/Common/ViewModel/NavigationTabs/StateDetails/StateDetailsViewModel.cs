@@ -1,17 +1,17 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MvvmHelpers;
-using Totalview_Time_MAUI.Common.Model.TimeRegistration;
+using Totalview_Time_MAUI.Common.Model.TimeManagement;
 using Totalview_Time_MAUI.Common.Services;
 using CommunityToolkit.Maui.Views;
 
 namespace Totalview_Time_MAUI.Common.ViewModel.NavigationTabs.StateDetails;
 
-[QueryProperty(nameof(Registration), nameof(Registration))]
+[QueryProperty(nameof(TimeRegistration), nameof(TimeRegistration))]
 internal partial class StateDetailsViewModel : BaseViewModel
 {
     [ObservableProperty]
-    public Registration registration;
+    public TimeRegistration timeRegistration;
     public bool ShowAddButton
     {
         get => showAddButton;
@@ -28,7 +28,7 @@ internal partial class StateDetailsViewModel : BaseViewModel
     public async void EditRegistration()
     {
         AnalyticsService.Instance.TrackEvent(Event.Action, Category.Touch, "EditRegistration tapped");
-        if (registration.Accessibility == EditState.Locked)
+        if (timeRegistration.Accessibility == RegistrationStatus.Locked)
         {
             await Application.Current.MainPage.DisplayAlert("Registration locked", "Cannot edit a locked registration", "OK");
             return;
@@ -39,7 +39,7 @@ internal partial class StateDetailsViewModel : BaseViewModel
     public void ShowEditStatePopup(ContentPage page)
     {
         AnalyticsService.Instance.TrackEvent(Event.Action, Category.Touch, "EditStatePopup tapped");
-        var popup = new EditStatePopup(registration);
+        var popup = new EditStatePopup(timeRegistration);
         page.ShowPopup(popup);
     }
 }
