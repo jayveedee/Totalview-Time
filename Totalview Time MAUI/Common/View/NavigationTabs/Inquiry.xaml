@@ -2,7 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Totalview_Time_MAUI.Inquiry"
+             xmlns:viewmodel="clr-namespace:Totalview_Time_MAUI.Common.ViewModel.NavigationTabs"
              Style="{StaticResource ContentPageTabsDefault}">
+    <ContentPage.BindingContext>
+        <viewmodel:InquiryViewModel></viewmodel:InquiryViewModel>
+    </ContentPage.BindingContext>
     <Grid RowDefinitions="*,*,*,*"
           RowSpacing="50"
           Margin="15,40,15,50">
@@ -18,6 +22,7 @@
                     Text="Accepted"
                     TextColor="{DynamicResource TeritaryTextColor}"
                     FontSize="{DynamicResource semiHugeFontSize}"
+                    Command="{Binding AcceptedButtonCommand}"
                     FontFamily="RobotoBold">
             </Button>
         </Frame>
@@ -33,6 +38,7 @@
                     Text="In progress"
                     TextColor="{DynamicResource TeritaryTextColor}"
                     FontSize="{DynamicResource semiHugeFontSize}"
+                    Command="{Binding InProgressButtonCommand}"
                     FontFamily="RobotoBold">
             </Button>
         </Frame>
@@ -48,6 +54,7 @@
                     Text="Rejected"
                     TextColor="{DynamicResource TeritaryTextColor}"
                     FontSize="{DynamicResource semiHugeFontSize}"
+                    Command="{Binding RejectedButtonCommand}"
                     FontFamily="RobotoBold">
             </Button>
         </Frame>
@@ -63,6 +70,7 @@
                     Text="Draft"
                     TextColor="{DynamicResource TeritaryTextColor}"
                     FontSize="{DynamicResource semiHugeFontSize}"
+                    Command="{Binding DraftButtonCommand}"
                     FontFamily="RobotoBold">
             </Button>
         </Frame>

@@ -85,6 +85,7 @@ internal record Storage
     public OidcOptions OidcOptions;
     public User User;
     public List<TimeRegistration> TimeRegistrations;
+    public List<TimeRegistration> PendingTimeRegistrations;
 
     public Storage() { }
 }

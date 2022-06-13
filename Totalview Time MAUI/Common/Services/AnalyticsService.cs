@@ -75,7 +75,9 @@ internal enum Event
     [Display(Name = "Error")]
     Error,
     [Display(Name = "Test")]
-    Test
+    Test,
+    [Display(Name = "System")]
+    System
 }
 internal enum Category
 {
@@ -115,5 +117,13 @@ internal enum Category
 
     // Test Categories
     [Display(Name = "Analytics Test")]
-    AnalyticsTest
+    AnalyticsTest,
+
+    // System Categories
+    [Display(Name = "Automatic Logout")]
+    AutomaticLogout,
+    [Display(Name = "Automatic Login")]
+    AutomaticLogin,
+    [Display(Name = "Automatic Navigation")]
+    AutomaticNavigation,
 }

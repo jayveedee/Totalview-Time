@@ -21,6 +21,8 @@ public partial class StateDetails : ContentPage
 			if (e.Item == null) return;
 
 			if (sender is ListView lv) lv.SelectedItem = null;
+
+			viewModel.ItemTappedCommand(e.Item);
 		};
 		listView.Scrolled += (object sender, ScrolledEventArgs e) =>
 		{
@@ -32,13 +34,24 @@ public partial class StateDetails : ContentPage
         {
 			viewModel.ShowEditStatePopup(this);
         };
+		editEnabledImageButton.Clicked += (object sender, EventArgs e) =>
+		{
+			editEnabledImageButton.IsVisible = false;
+		};
 	}
 
     protected override void OnNavigatedTo(NavigatedToEventArgs args)
     {
         base.OnNavigatedTo(args);
 
-		if (viewModel.timeRegistration.Accessibility == RegistrationStatus.Open)
+        if (viewModel.IsModifiedRegistration)
+        {
+            LockLockedImage.IsVisible = false;
+            editDisabledImageButton.IsVisible = false;
+            LockOpenedImage.IsVisible = false;
+            editEnabledImageButton.IsVisible = false;
+        }
+		else if (viewModel.timeRegistration.Accessibility == RegistrationStatus.Open)
         {
 			LockLockedImage.IsVisible = false;
 			editDisabledImageButton.IsVisible = false;
@@ -52,5 +65,7 @@ public partial class StateDetails : ContentPage
             LockOpenedImage.IsVisible = false;
             editEnabledImageButton.IsVisible = false;
         }
+
+		viewModel.UpdateList();
     }
 }

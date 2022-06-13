@@ -19,6 +19,7 @@ internal partial class OverviewViewModel : BaseViewModel
         set => SetProperty(ref isRefreshing, value);
     }
     private bool isRefreshing;
+    private List<TimeRegistration> timeRegistrations;
 
     public ICommand RefreshCommand { get; set; }
     
@@ -27,6 +28,10 @@ internal partial class OverviewViewModel : BaseViewModel
     {
         RefreshCommand = new Command(OnRefreshCommand);
         TimeRegistrationsValue = new ObservableRangeCollection<TimeRegistration>();
+        var storage = StorageService.Instance.LoadStorage();
+        timeRegistrations = DummyDataUtil.CreateTimeRegistrations();
+        storage.TimeRegistrations = timeRegistrations;
+        StorageService.Instance.SaveStorage(storage);
         OnRefreshCommand();
     }
 
@@ -34,14 +39,11 @@ internal partial class OverviewViewModel : BaseViewModel
     {
         IsRefreshingValue = true;
         //timeRegistrationsValue = await TimeServerAPIService.Instance.GetTimeRegistrations();
-        var storage = StorageService.Instance.LoadStorage();
-        storage.TimeRegistrations = DummyDataUtil.CreateTimeRegistrations();
-        StorageService.Instance.SaveStorage(storage);
 
         TimeRegistrationsValue.Clear();
-        for (int i = 0; i < storage.TimeRegistrations.Count; i++)
+        for (int i = 0; i < timeRegistrations.Count; i++)
         {
-            TimeRegistrationsValue.Add(storage.TimeRegistrations[i]);
+            TimeRegistrationsValue.Add(timeRegistrations[i]);
         }
         IsRefreshingValue = false;
     }
@@ -50,9 +52,11 @@ internal partial class OverviewViewModel : BaseViewModel
     {
         if (item != null)
         {
+            AnalyticsService.Instance.TrackEvent(Event.Action, Category.Touch, "OverviewRegistrationTapped");
             await Shell.Current.GoToAsync($"/{nameof(StateDetails)}", new Dictionary<string, object>
             {
-                [nameof(TimeRegistration)] = (TimeRegistration) item
+                [nameof(TimeRegistration)] = (TimeRegistration) item,
+                ["IsModifiedRegistration"] = false
             });
         }
     }

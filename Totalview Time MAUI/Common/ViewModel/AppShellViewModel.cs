@@ -44,6 +44,7 @@ public partial class AppShellViewModel : BaseViewModel
         }
         if (values.AuthCredentials?.AccessTokenExpiration > DateTime.Now)
         {
+            AnalyticsService.Instance.TrackEvent(Event.System, Category.AutomaticNavigation, "LoginSuceededViaUpToDateCredentials navigating to MainPage");
             await Shell.Current.GoToAsync($"//{nameof(TimeAccounts)}");
         }
         else if (values.OidcOptions != null && values.AuthCredentials?.AccessToken != null)
@@ -53,6 +54,7 @@ public partial class AppShellViewModel : BaseViewModel
 
             if (credential.AccessToken != null)
             {
+                AnalyticsService.Instance.TrackEvent(Event.System, Category.AutomaticNavigation, "LoginSuceededViaRefreshedCredentials navigating to MainPage");
                 await Shell.Current.GoToAsync($"//{nameof(TimeAccounts)}");
             }
         }

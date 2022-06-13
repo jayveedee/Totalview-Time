@@ -7,13 +7,14 @@
     <ContentPage.BindingContext>
         <viewmodel:TimeAccountsViewModel></viewmodel:TimeAccountsViewModel>
     </ContentPage.BindingContext>
-    <Grid RowDefinitions="200,*"
+    <Grid x:Name="PageView" 
+          RowDefinitions="200,*"
           Margin="25"
           Padding="0">
         <Frame Grid.Row="0"
                BackgroundColor="{DynamicResource PrimaryColor}">
         </Frame>
-        <CollectionView Grid.Row="1"
+        <CollectionView x:Name="listview" Grid.Row="1"
                         ItemsSource="{Binding TimeAccounts}"
                         Margin="0,40,0,0"
                         BackgroundColor="Transparent">
@@ -30,6 +31,11 @@
                            CornerRadius="10"
                            Padding="0,5,0,0"
                            HasShadow="True">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=BindingContext.ItemTappedCommand, Source={x:Reference PageView}}"
+                                                  CommandParameter="{Binding .}">
+                            </TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
                         <Grid RowDefinitions="25,65"
                               Padding="0"
                               Margin="0"

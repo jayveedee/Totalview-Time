@@ -23,6 +23,7 @@ internal partial class EditStatePopupViewModel : BaseViewModel
     public string extraText;
     private readonly Popup popup;
     private readonly TimeRegistration registration;
+    private List<TimeState> newRegistrationStates;
     private readonly TimeSpan defaultStartTime;
     private readonly TimeSpan defaultEndTime;
 
@@ -50,7 +51,7 @@ internal partial class EditStatePopupViewModel : BaseViewModel
             if (result)
             {
                 AnalyticsService.Instance.TrackEvent(Event.Action, Category.Touch, "SaveNewlyCreatedState");
-                popup.Close();
+                popup.Close(newRegistrationStates);
             }
         }
     }
@@ -68,7 +69,7 @@ internal partial class EditStatePopupViewModel : BaseViewModel
         }
 
         AnalyticsService.Instance.TrackEvent(Event.Action, Category.Touch, "DeleteNewlyCreatedState");
-        popup.Close();
+        popup.Close(null);
     }
 
     private async Task<bool> DisplayCautionAlert(string title, string description, bool hasMultiChoice = false)
@@ -131,77 +132,168 @@ internal partial class EditStatePopupViewModel : BaseViewModel
             return false;
         }
 
-        bool multipleStates = false;
-        List<TimeState> overlappingStates = new List<TimeState>();
-        List<TimeState> modifiedStates = registration.States;
-        for (int i = 0; i < registration.States.Count; i++)
+        newRegistrationStates = await ModifyStates(registration.States);
+        return true;
+    }
+
+    private async Task<List<TimeState>> ModifyStates(List<TimeState> originalStates)
+    {
+        var modifiedStates = new List<TimeState>();
+        var overlappingStates = new List<TimeState>();
+
+        var isFirstOverlap = true;
+        for (int i = 0; i < originalStates.Count; i++)
         {
-            var registeredState = registration.States[i];
-            var modifiedState = modifiedStates[i];
+            var orState = originalStates[i];
+            var orStateStartTime = orState.StartDate.TimeOfDay;
+            var orStateEndTime = orState.EndDate.TimeOfDay;
 
-            var registeredStateStartTime = registeredState.StartDate.TimeOfDay;
-            var registeredStateEndTime = registeredState.EndDate.TimeOfDay;
-            var modifiedStateStartTime = modifiedState.StartDate.TimeOfDay;
-            var modifiedStateEndTime = modifiedState.EndDate.TimeOfDay;
-
-            // Newly created state starts in or exactly when the current state starts
-            if ((startTime >= registeredStateStartTime && (startTime < registeredStateEndTime || registeredStateEndTime.TotalMilliseconds == 0)) 
-                || (startTime < registeredStateStartTime && (startTime < registeredStateEndTime || registeredStateEndTime.TotalMilliseconds == 0)))
+            if (!IsCurrentStateOverlapping(orStateStartTime, orStateEndTime))
             {
-                // Newly created state ends after the current state end
-                if (endTime > registeredStateEndTime && registeredStateEndTime.TotalMilliseconds != 0)
-                {
-                    overlappingStates.Add(registeredState);
-                    multipleStates = true;
-                }
-                // Newly created state's end is within the current state's endtime
-                else if ((endTime <= registeredStateEndTime || registeredStateEndTime.TotalMilliseconds == 0) && (endTime > registeredStateStartTime || endTime.TotalMilliseconds == 0))
-                {
-                    // There were multiple state overlaps
-                    if (multipleStates)
-                    {
-                        overlappingStates.Add(registeredState);
-                    }
-                    // Only a single state overlap was found
-                    else
-                    {
-                        var stateCautionText = $"The state [{registeredState.Title}, {registeredState.StartTime} - {registeredState.EndTime}] needs to be modified\n";
-                        await DisplayCautionAlert("State overlap", $"{stateCautionText}");
-                        overlappingStates.Add(registeredState);
+                modifiedStates.Add(orState);
+                continue;
+            }
 
-                        
+            modifiedStates.AddRange(CreateModifiedStates(orState, isFirstOverlap, isFirstOverlap, false));
+            isFirstOverlap = false;
 
-                        break;
-                    }
-                }
-                // The last state in the registration was also overlapping with the newly created state
-                else if (multipleStates)
+            overlappingStates.Add(orState);
+
+            if (IsNewStateWithinCurrentState(orStateEndTime))
+            {
+                modifiedStates.AddRange(CreateModifiedStates(orState, isFirstOverlap, isFirstOverlap, true));
+
+                for (int j = i + 1; j < originalStates.Count; j++)
                 {
-                    break;
+                    modifiedStates.Add(originalStates[j]);
                 }
+
+                break;
             }
         }
-        if (multipleStates)
-        {
-            string extraStateCautionText = "";
-            for (int j = 0; j < overlappingStates.Count; j++)
-            {
-                var extraState = overlappingStates[j];
-                extraStateCautionText += $"The state [{extraState.Title}, {extraState.StartTime} - {extraState.EndTime}] needs to be modified\n";
-            }
-            await DisplayCautionAlert("State overlap", $"{extraStateCautionText}");
-        }
 
-        if (overlappingStates.Count > 0)
+        await HandleDisplayingOverlapAlert(overlappingStates);
+
+        return modifiedStates;
+    }
+
+    private bool IsCurrentStateOverlapping(TimeSpan currStartTime, TimeSpan currEndTime)
+    {
+        return ((startTime >= currStartTime && (startTime < currEndTime || currEndTime.TotalMilliseconds == 0))
+                || (startTime < currStartTime && (startTime < currEndTime || currEndTime.TotalMilliseconds == 0)));
+    }
+
+    private bool IsNewStateWithinCurrentState(TimeSpan currEndTime)
+    {
+        return !(endTime > currEndTime && currEndTime.TotalMilliseconds != 0 && endTime != currEndTime);   
+    }
+
+    private List<TimeState> CreateModifiedStates(TimeState currState, bool start, bool middle, bool end)
+    {
+        var modifiedStates = new List<TimeState>();
+
+        var currStartTime = currState.StartDate.TimeOfDay;
+        var currEndTime = currState.EndDate.TimeOfDay;
+
+        var startConstant = new TimeSpan();
+        var endConstant = new TimeSpan();
+
+        if (start && currStartTime.TotalMilliseconds != startTime.TotalMilliseconds)
         {
-            bool result = await DisplayCautionAlert("State creation action", "You are about to replace the overlapping states with the new state, are you sure you want to proceed?", true);
-            if (!result)
+            if (currStartTime.TotalMilliseconds == 0 || startTime > currStartTime)
             {
-                return false;
+
+                endConstant = startTime > currEndTime ? startTime - currEndTime : currEndTime - startTime;
+                var startDate = currState.StartDate;
+
+                if (currStartTime.TotalMilliseconds == 0 || startTime > currStartTime)
+                {
+                    startDate = currState.StartDate;
+                }
+                else if (currStartTime <= startTime)
+                {
+                    startConstant = endTime >= currStartTime ? endTime - currStartTime : currStartTime - endTime;
+                    startDate = currState.StartDate.Add(startConstant);
+                }
+
+                var endDate = currState.EndDate;
+
+                if (currEndTime.TotalMilliseconds != 0)
+                {
+                    endDate = currState.EndDate.Subtract(endConstant);
+                }
+                else
+                {
+                    endDate = currState.StartDate.Add(endConstant - currStartTime);
+                }
+
+                modifiedStates.Add(new TimeState(
+                    currState.Title,
+                    currState.Description,
+                    currState.Extra,
+                    currState.Color,
+                    startDate,
+                    endDate,
+                    currState.TimeAccountType));
+            }
+        }
+        if (middle)
+        {
+            startConstant = startTime > currStartTime ? startTime - currStartTime : currStartTime - startTime;
+
+            endConstant = currEndTime > endTime ? endTime - currEndTime : currEndTime - endTime;
+
+            var endDate = currState.EndDate;
+
+            if (currEndTime > endTime)
+            {
+                endDate = currState.EndDate.Add(endConstant);
+            } 
+            else
+            {
+                endDate = currState.EndDate.Subtract(endConstant);
             }
             
+            modifiedStates.Add(new TimeState(
+                selectedState.Title,
+                DescriptionText,
+                ExtraText,
+                selectedState.Color,
+                currState.StartDate.Add(startConstant),
+                endDate,
+                selectedState.TimeAccountType));
+        }
+        if (end && (currEndTime > endTime || currEndTime.TotalMilliseconds == 0))
+        {
+            startConstant = endTime > currEndTime ? endTime - currEndTime : currEndTime - endTime;
+            var startDate = currState.EndDate.Subtract(startConstant);
+
+            if (currEndTime.TotalMilliseconds == 0)
+            {
+                startDate = currState.StartDate.Add(endTime - currState.StartDate.TimeOfDay);
+            }
+
+            modifiedStates.Add(new TimeState(
+                currState.Title,
+                currState.Description,
+                currState.Extra,
+                currState.Color,
+                startDate,
+                currState.EndDate,
+                currState.TimeAccountType));
         }
 
-        return true;
+        return modifiedStates;
+    }
+
+    private async Task<bool> HandleDisplayingOverlapAlert(List<TimeState> overlappingStates)
+    {
+        var stateCautionText = "";
+        foreach (var overlapState in overlappingStates)
+        {
+            stateCautionText += $"The state [{overlapState.Title}, {overlapState.StartTime} - {overlapState.EndTime}] needs to be modified\n";
+        }
+
+        return await DisplayCautionAlert("State overlap", $"{stateCautionText}");
     }
 }

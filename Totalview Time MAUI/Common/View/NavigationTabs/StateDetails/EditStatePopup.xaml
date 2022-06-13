@@ -99,18 +99,20 @@
                     <ColumnDefinition Width="0.5*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Frame Grid.Column="0" 
+                       Padding="0"
+                       Margin="0"
                        BackgroundColor="LimeGreen">
                     <ImageButton Source="save"
                                  HeightRequest="20"
-                                 WidthRequest="20"
                                  Command="{Binding SaveCommand}">
                     </ImageButton>
                 </Frame>
                 <Frame Grid.Column="1" 
+                       Padding="0"
+                       Margin="0"
                        BackgroundColor="Red">
                     <ImageButton Source="delete"
                                  HeightRequest="20"
-                                 WidthRequest="20"
                                  Command="{Binding DeleteCommand}">
                     </ImageButton>
                 </Frame>

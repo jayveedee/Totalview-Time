@@ -27,5 +27,6 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(Overview), typeof(Overview));
         Routing.RegisterRoute(nameof(Inquiry), typeof(Inquiry));
         Routing.RegisterRoute(nameof(StateDetails), typeof(StateDetails));
+        Routing.RegisterRoute(nameof(InProgress), typeof(InProgress));
     }
 }

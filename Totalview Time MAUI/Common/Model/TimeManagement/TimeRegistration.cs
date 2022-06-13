@@ -5,8 +5,9 @@ public record TimeRegistration
     public string CurrentDayTitle { get; }
     public string CurrentDateTitle { get; }
     public DateTime DateCreated { get; }
-    public List<TimeState> States { get; }
+    public List<TimeState> States { get; set; }
     public RegistrationStatus Accessibility { get; }
+    public RegistrationInquiryStatus InquiryStatus { get; set; }
     public string CompleteWorkHours { get; set; }
     public string NormalWorkHours { get; set; }
     public string OvertimeWorkHours { get; set; }
@@ -24,6 +25,12 @@ public record TimeRegistration
         Accessibility = accessibility;
         CalculateWorkedHours(dateCreated, states);
         
+    }
+
+    public void UpdateStates(List<TimeState> states)
+    {
+        CalculateWorkedHours(DateCreated, states);
+        States = states;
     }
 
     private void CalculateWorkedHours(DateTime day, List<TimeState> states)
@@ -73,4 +80,12 @@ public enum RegistrationStatus
 {
     Open,
     Locked
+}
+
+public enum RegistrationInquiryStatus
+{
+    Accepted,
+    Pending,
+    Rejected,
+    Draft
 }

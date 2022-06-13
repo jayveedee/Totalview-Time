@@ -79,6 +79,7 @@ internal class RefreshSessionService : IRefreshSessionService
     private async void NavigateToLogin()
     {
         await Shell.Current.GoToAsync($"//{nameof(LoginServerDetails)}");
+        AnalyticsService.Instance.TrackEvent(Event.System, Category.AutomaticNavigation, "LoginFailed Navigate to LoginPage");
         StopRefreshing();
     }
 }

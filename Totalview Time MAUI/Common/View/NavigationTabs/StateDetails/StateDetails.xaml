@@ -10,6 +10,9 @@
     <ContentPage.BindingContext>
         <viewmodels:StateDetailsViewModel></viewmodels:StateDetailsViewModel>
     </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <controls:ToolbarItemCustom IconImageSource="save" Command="{Binding SaveCommand}" IsVisible="{Binding ToolbarItemVisibility}"></controls:ToolbarItemCustom>
+    </ContentPage.ToolbarItems>
     <StackLayout Orientation="Vertical">
         <Label TextColor="{DynamicResource PrimaryColor}" Margin="40,0,40,0"
                Text="{Binding TimeRegistration.CurrentDateTitle}"
@@ -38,7 +41,7 @@
                         </Label>
                         <StackLayout Orientation="Horizontal" Grid.Column="1" HorizontalOptions="End">
                             <Label TextColor="{DynamicResource PrimaryTextColor}"
-                                   Text="{Binding TimeRegistration.CompleteWorkHours}"
+                                   Text="{Binding CompleteWorkHours}"
                                    FontSize="{DynamicResource mediumFontSize}"
                                    FontFamily="Roboto"
                                    VerticalOptions="Center"
@@ -54,7 +57,7 @@
                             </Label>
                         </StackLayout>
                     </Grid>
-                    <controls:RegistrationBarGrid RegistrationStates="{Binding TimeRegistration.States}" BackgroundColor="Red" Grid.Row="1"></controls:RegistrationBarGrid>
+                    <controls:RegistrationBarGrid RegistrationStates="{Binding States}" BackgroundColor="Red" Grid.Row="1"></controls:RegistrationBarGrid>
                 </Grid>
                 <Label TextColor="{DynamicResource SecondaryTextColor}"
                        Text="My states"
@@ -64,7 +67,7 @@
                        HorizontalOptions="Start">
                 </Label>
                 <ListView x:Name="listView"
-                          ItemsSource="{Binding TimeRegistration.States}"
+                          ItemsSource="{Binding States}"
                           IsPullToRefreshEnabled="False"
                           IsEnabled="True"
                           BackgroundColor="Transparent"
@@ -162,6 +165,7 @@
                                  Source="edit_enabled" 
                                  HorizontalOptions="End" 
                                  Margin="0,0,15,10"
+                                 IsVisible="{Binding EditRegistrationVisibility}"
                                  Command="{Binding EditRegistrationCommand}">
                     </ImageButton>
                     <ImageButton x:Name="editDisabledImageButton" 
@@ -191,7 +195,7 @@
                 </Label>
                 <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
                     <Label TextColor="{DynamicResource PrimaryColor}"
-                       Text="{Binding TimeRegistration.NormalWorkHours}"
+                       Text="{Binding NormalWorkHours}"
                        FontSize="{DynamicResource smallFontSize}"
                        FontFamily="RobotoBold"
                        Padding="5,0,0,0"
@@ -214,7 +218,7 @@
                 </Label>
                 <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
                     <Label TextColor="{DynamicResource PrimaryColor}"
-                       Text="{Binding TimeRegistration.OvertimeWorkHours}"
+                       Text="{Binding OvertimeWorkHours}"
                        FontSize="{DynamicResource smallFontSize}"
                        FontFamily="RobotoBold"
                        Padding="5,0,0,0"
@@ -237,7 +241,7 @@
                 </Label>
                 <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
                     <Label TextColor="{DynamicResource PrimaryColor}"
-                       Text="{Binding TimeRegistration.VacationHours}"
+                       Text="{Binding VacationHours}"
                        FontSize="{DynamicResource smallFontSize}"
                        FontFamily="RobotoBold"
                        Padding="5,0,0,0"

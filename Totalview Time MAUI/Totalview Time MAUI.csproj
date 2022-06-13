@@ -91,6 +91,9 @@
 	  <MauiXaml Update="AppShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Common\View\NavigationTabs\InquiryDetails\InProgress.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Common\View\NavigationTabs\StateDetails\EditStatePopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -125,7 +128,7 @@
 
 	<ItemGroup>
 	  <Folder Include="Common\ViewModel\Controls\Login\" />
-	  <Folder Include="Common\ViewModel\Controls\NavigationTabs\StateDetails\" />
+	  <Folder Include="Common\View\Controls\NavigationTabs\Overview\StateDetails\" />
 	  <Folder Include="Platforms\iOS\Model\" />
 	</ItemGroup>
 	

@@ -52,8 +52,8 @@ internal static class DummyDataUtil
     {
         var random = new Random();
         var listOfAccounts = new List<TimeAccount>();
-        var timeRegistrations = CreateTimeRegistrations(random.Next(15));
-        for (int i = 0; i < Enum.GetNames(typeof(TimeAccountType)).Length; i++)
+        var timeRegistrations = CreateTimeRegistrations(15);
+        for (int i = 0; i < Enum.GetNames(typeof(TimeAccountType)).Length - 1; i++)
         {
             string title = TimeAccountType.NormalWork.ToString();
             TimeAccountType currentAccountType = TimeAccountType.NormalWork;
@@ -121,7 +121,14 @@ internal static class DummyDataUtil
         var states = new List<TimeState>();
         for (int i = 0; i < _listOfTitles.Count; i++)
         {
-            var state = new TimeState(_listOfTitles[i], _listOfDescriptions[i], _listOfColors[i], DateTime.Now, DateTime.Now, TimeAccountType.NoWork);
+            var timeAccountType = TimeAccountType.NoWork;
+
+            if (i == 1 || i == 2)
+            {
+                timeAccountType = TimeAccountType.NormalWork;
+            }
+
+            var state = new TimeState(_listOfTitles[i], _listOfDescriptions[i], "test", _listOfColors[i], DateTime.Now, DateTime.Now, timeAccountType);
             states.Add(state);
         }
         states.Sort((x, y) => x.Title.CompareTo(y.Title));
@@ -161,7 +168,7 @@ internal static class DummyDataUtil
                 end = start.AddMinutes(breakTime);
                 timeAccount = TimeAccountType.NoWork;
 
-                var dinnerState = new TimeState(title, description, color, start, end, timeAccount);
+                var dinnerState = new TimeState(title, description, "test", color, start, end, timeAccount);
                 listOfStates.Add(dinnerState);
 
                 start = end;
@@ -177,14 +184,14 @@ internal static class DummyDataUtil
                     end = DateTime.Today.AddHours(8 + 8);
                     timeAccount = TimeAccountType.NormalWork;
 
-                    var extraState = new TimeState(title, description, color, start, end, timeAccount);
+                    var extraState = new TimeState(title, description, "test", color, start, end, timeAccount);
                     listOfStates.Add(extraState);
 
                     start = end;
                     end = overTimeEnd;
                     timeAccount = TimeAccountType.OvertimeWork;
 
-                    var overtimeState = new TimeState("Busy", "Running an errand", Colors.Blue, start, end, timeAccount);
+                    var overtimeState = new TimeState("Busy", "Running an errand", "test", Colors.Blue, start, end, timeAccount);
                     listOfStates.Add(overtimeState);
                     continue;
                 }
@@ -196,7 +203,7 @@ internal static class DummyDataUtil
                 timeAccount = TimeAccountType.NoWork;
             }
 
-            var state = new TimeState(title, description, color, start, end, timeAccount);
+            var state = new TimeState(title, description, "test", color, start, end, timeAccount);
             listOfStates.Add(state);
         }
         return listOfStates;

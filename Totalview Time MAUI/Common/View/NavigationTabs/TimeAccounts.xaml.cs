@@ -14,5 +14,6 @@ public partial class TimeAccounts : ContentPage
 		BindingContext = viewModel;
 
 		AnalyticsService.Instance.TrackEvent(Event.Navigation, Category.PageSession, nameof(TimeAccounts));
-	}
+
+    }
 }
