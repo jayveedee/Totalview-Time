@@ -1,0 +1,123 @@
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               xmlns:viewmodel="clr-namespace:Totalview_Time_MAUI.Common.ViewModel.NavigationTabs.StateDetails"
+               CanBeDismissedByTappingOutsideOfPopup="False"
+               x:Class="Totalview_Time_MAUI.EditStatePopup">
+    <toolkit:Popup.BindingContext>
+        <viewmodel:EditStatePopupViewModel></viewmodel:EditStatePopupViewModel>
+    </toolkit:Popup.BindingContext>
+
+    <Frame CornerRadius="10" 
+           HeightRequest="495" 
+           WidthRequest="350"
+           BackgroundColor="{DynamicResource SecondaryColor}">
+        <VerticalStackLayout>
+            <Picker x:Name="statePicker" 
+                    Margin="15,0,15,0"
+                    Title="Select a state"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    BackgroundColor="White"
+                    FontFamily="RobotoBold"
+                    FontSize="{DynamicResource smallFontSize}"
+                    ItemsSource="{Binding States}"
+                    ItemDisplayBinding="{Binding Title}"
+                    SelectedItem="{Binding SelectedState}">
+            </Picker>
+            <Grid RowDefinitions="*,*" 
+                  ColumnDefinitions="*,*"
+                  Padding="0,10,0,0" 
+                  Margin="0">
+                <Label Grid.Row="0" Grid.Column="0" 
+                       Text="Start" 
+                       TextColor="{DynamicResource PrimaryColor}"
+                       FontFamily="RobotoBold" 
+                       HorizontalOptions="Center"
+                       FontSize="{DynamicResource smallFontSize}"></Label>
+                <Label Grid.Row="0" Grid.Column="1" 
+                       Text="End" 
+                       TextColor="{DynamicResource PrimaryColor}"
+                       FontFamily="RobotoBold" 
+                       HorizontalOptions="Center"
+                       FontSize="{DynamicResource smallFontSize}"></Label>
+                <Frame Grid.Row="1" Grid.Column="0" 
+                       CornerRadius="10"
+                       BorderColor="Black"
+                       HorizontalOptions="Center"
+                       BackgroundColor="White">
+                    <TimePicker Time="{Binding StartTime}"></TimePicker>
+                </Frame>
+                <Frame Grid.Row="1" Grid.Column="1" 
+                       CornerRadius="10"
+                       BorderColor="Black"
+                       HorizontalOptions="Center"
+                       BackgroundColor="White">
+                    <TimePicker Time="{Binding EndTime}"></TimePicker>
+                </Frame>
+            </Grid>
+            <Grid RowDefinitions="*,100,*,100" 
+                  Padding="0,10,0,0" 
+                  Margin="0">
+                <Label Grid.Row="0" 
+                       Margin="0,5,0,0"
+                       TextColor="{DynamicResource PrimaryColor}" 
+                       Text="Description*" 
+                       FontFamily="RobotoBold" 
+                       FontSize="{DynamicResource smallFontSize}">
+                </Label>
+                <Editor Grid.Row="1" 
+                        AutoSize="TextChanges"
+                        Margin="0"
+                        Text="{Binding DescriptionText}"
+                        TextColor="{DynamicResource PrimaryTextColor}"
+                        FontSize="{DynamicResource smallFontSize}"
+                        BackgroundColor="White">
+                </Editor>
+                <Label Grid.Row="2"
+                       TextColor="{DynamicResource PrimaryColor}" 
+                       Text="Extra" FontFamily="RobotoBold" 
+                       FontSize="{DynamicResource smallFontSize}">
+                </Label>
+                <Editor Grid.Row="3"
+                        AutoSize="TextChanges"
+                        Margin="0"
+                        Text="{Binding ExtraText}"
+                        TextColor="{DynamicResource PrimaryTextColor}"
+                        FontSize="{DynamicResource smallFontSize}"
+                        BackgroundColor="White">
+                </Editor>
+            </Grid>
+            <Grid MaximumHeightRequest="55" 
+                  Padding="0,20,0,0" 
+                  Margin="0" 
+                  ColumnSpacing="10"
+                  VerticalOptions="FillAndExpand" 
+                  HorizontalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Column="0" 
+                       Padding="0"
+                       Margin="0"
+                       BackgroundColor="LimeGreen">
+                    <ImageButton Source="save"
+                                 HeightRequest="20"
+                                 Command="{Binding SaveCommand}">
+                    </ImageButton>
+                </Frame>
+                <Frame Grid.Column="1" 
+                       Padding="0"
+                       Margin="0"
+                       BackgroundColor="Red">
+                    <ImageButton Source="delete"
+                                 HeightRequest="20"
+                                 Command="{Binding DeleteCommand}">
+                    </ImageButton>
+                </Frame>
+            </Grid>
+        </VerticalStackLayout>
+    </Frame>
+</toolkit:Popup>
+

@@ -1,8 +1,8 @@
 ﻿<maui:MauiWinUIApplication
-    x:Class="Totalview_TIme_Smartclient.WinUI.App"
+    x:Class="Totalview_Time_MAUI.WinUI.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:maui="using:Microsoft.Maui"
-    xmlns:local="using:Totalview_TIme_Smartclient.WinUI">
+    xmlns:local="using:Totalview_Time_MAUI.WinUI">
 
 </maui:MauiWinUIApplication>

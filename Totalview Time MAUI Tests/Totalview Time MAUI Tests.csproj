@@ -2,10 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Totalview_Time_MAUI_Tests</RootNamespace>
+    <Nullable>enable</Nullable>
     <UseMaui>true</UseMaui>
+
     <IsPackable>false</IsPackable>
-    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-    <CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)\GF</CompilerGeneratedFilesOutputPath>
   </PropertyGroup>
 
   <ItemGroup>

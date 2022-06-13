@@ -93,14 +93,7 @@ internal class AuthenticationService : IAuthenticationService
         }
 
         SaveCredentialsToStorage(credentials);
-        try
-        {
-            _refreshSessionService.UpdateRefresher(credentials);
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine(ex);
-        }
+        _refreshSessionService.UpdateRefresher(credentials);
         return credentials;
     }
 

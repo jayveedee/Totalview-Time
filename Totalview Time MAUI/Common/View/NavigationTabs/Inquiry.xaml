@@ -2,10 +2,77 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Totalview_Time_MAUI.Inquiry"
-             Style="{StaticResource ContentPageDefault}">
-    <StackLayout>
-        <Label Text="Welcome to .NET MAUI!"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-    </StackLayout>
+             xmlns:viewmodel="clr-namespace:Totalview_Time_MAUI.Common.ViewModel.NavigationTabs"
+             Style="{StaticResource ContentPageTabsDefault}">
+    <ContentPage.BindingContext>
+        <viewmodel:InquiryViewModel></viewmodel:InquiryViewModel>
+    </ContentPage.BindingContext>
+    <Grid RowDefinitions="*,*,*,*"
+          RowSpacing="50"
+          Margin="15,40,15,50">
+        <Frame Grid.Row="0"
+               Padding="0"
+               Margin="0"
+               CornerRadius="15"
+               HasShadow="True"
+               BackgroundColor="#00CF6C">
+            <Button BackgroundColor="Transparent"
+                    Margin="0"
+                    Padding="0"
+                    Text="Accepted"
+                    TextColor="{DynamicResource TeritaryTextColor}"
+                    FontSize="{DynamicResource semiHugeFontSize}"
+                    Command="{Binding AcceptedButtonCommand}"
+                    FontFamily="RobotoBold">
+            </Button>
+        </Frame>
+        <Frame Grid.Row="1"
+               Padding="0"
+               Margin="0"
+               CornerRadius="15"
+               HasShadow="True"
+               BackgroundColor="#EB7100">
+            <Button BackgroundColor="Transparent"
+                    Margin="0"
+                    Padding="0"
+                    Text="In progress"
+                    TextColor="{DynamicResource TeritaryTextColor}"
+                    FontSize="{DynamicResource semiHugeFontSize}"
+                    Command="{Binding InProgressButtonCommand}"
+                    FontFamily="RobotoBold">
+            </Button>
+        </Frame>
+        <Frame Grid.Row="2"
+               Padding="0"
+               Margin="0"
+               CornerRadius="15"
+               HasShadow="True"
+               BackgroundColor="#D73636">
+            <Button BackgroundColor="Transparent"
+                    Margin="0"
+                    Padding="0"
+                    Text="Rejected"
+                    TextColor="{DynamicResource TeritaryTextColor}"
+                    FontSize="{DynamicResource semiHugeFontSize}"
+                    Command="{Binding RejectedButtonCommand}"
+                    FontFamily="RobotoBold">
+            </Button>
+        </Frame>
+        <Frame Grid.Row="3"
+               Padding="0"
+               Margin="0"
+               CornerRadius="15"
+               HasShadow="True"
+               BackgroundColor="#002D62">
+            <Button BackgroundColor="Transparent"
+                    Margin="0"
+                    Padding="0"
+                    Text="Draft"
+                    TextColor="{DynamicResource TeritaryTextColor}"
+                    FontSize="{DynamicResource semiHugeFontSize}"
+                    Command="{Binding DraftButtonCommand}"
+                    FontFamily="RobotoBold">
+            </Button>
+        </Frame>
+    </Grid>
 </ContentPage>

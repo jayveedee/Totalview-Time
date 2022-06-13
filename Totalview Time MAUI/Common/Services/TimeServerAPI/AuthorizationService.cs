@@ -14,9 +14,9 @@ internal class AuthorizationService
     {
         if (accessToken == null) throw new ArgumentNullException(nameof(accessToken));
 
-        StoreBasicUserDetails(accessToken);
+        AuthorizationService.StoreBasicUserDetails(accessToken);
 
-        WCFDatabaseClient client = new WCFDatabaseClient(WCFDatabaseClient.EndpointConfiguration.BasicHttpBinding_IWCFDatabase);
+        WCFDatabaseClient client = new(WCFDatabaseClient.EndpointConfiguration.BasicHttpBinding_IWCFDatabase);
         ClientBase<IWCFDatabase> clientBase = client;
         clientBase.Endpoint.EndpointBehaviors.Add(new AuthorizationBehavior(accessToken));
 
@@ -30,7 +30,7 @@ internal class AuthorizationService
         return timeServerAPIService;
     }
 
-    private void StoreBasicUserDetails(string accessToken)
+    private static void StoreBasicUserDetails(string accessToken)
     {
         var formattedAccessToken = new JwtSecurityTokenHandler().ReadJwtToken(accessToken);
         var userId = int.Parse(formattedAccessToken.Subject);

@@ -31,8 +31,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="Totalview TIme Smartclient"
-        Description="Totalview TIme Smartclient"
+        DisplayName="Totalview Time MAUI"
+        Description="Totalview Time MAUI"
         BackgroundColor="transparent"
         Square150x150Logo="appiconMediumTile.png"
         Square44x44Logo="appiconLogo.png">

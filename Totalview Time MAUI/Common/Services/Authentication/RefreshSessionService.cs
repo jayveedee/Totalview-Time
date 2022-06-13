@@ -9,7 +9,7 @@ internal interface IRefreshSessionService
 
 internal class RefreshSessionService : IRefreshSessionService
 {
-    private AuthenticationService _authenticationService;
+    private readonly AuthenticationService _authenticationService;
     private AuthCredentials _authCredentials;
     private static Timer _timer;
     private static bool _isDoingWorkFlag;
@@ -36,7 +36,7 @@ internal class RefreshSessionService : IRefreshSessionService
         _interval = intervalSeconds;
         if (_timer == null)
         {
-            throw new InvalidOperationException("Timer not started");
+            StartRefreshing(authCredentials, intervalSeconds);
         }
         _authCredentials = authCredentials ?? throw new ArgumentNullException(nameof(authCredentials));
         if (intervalSeconds != 60)
@@ -66,13 +66,20 @@ internal class RefreshSessionService : IRefreshSessionService
                 AuthCredentials credentials = await _authenticationService.RefreshSession(_authCredentials);
                 if (!credentials.IsValid)
                 {
-                    await Shell.Current.GoToAsync($"//{nameof(LoginServerDetails)}");
-                    StopRefreshing();
+                    await MainThread.InvokeOnMainThreadAsync(NavigateToLogin);
+                    await _authenticationService.SignOut(credentials);
                     _isDoingWorkFlag = false;
                     return;
                 }
                 _isDoingWorkFlag = false;
             }
         }
+    }
+
+    private async void NavigateToLogin()
+    {
+        await Shell.Current.GoToAsync($"//{nameof(LoginServerDetails)}");
+        AnalyticsService.Instance.TrackEvent(Event.System, Category.AutomaticNavigation, "LoginFailed Navigate to LoginPage");
+        StopRefreshing();
     }
 }
