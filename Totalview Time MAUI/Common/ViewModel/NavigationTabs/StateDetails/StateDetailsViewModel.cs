@@ -47,12 +47,23 @@ internal partial class StateDetailsViewModel : BaseViewModel
     private bool toolbarItemVisibiliy;
     private bool registrationIsEdited;
 
-    public void ItemTappedCommand(object item)
+    public async void ItemTappedCommand(object item)
     {
-        if (item != null)
+        if (item == null || !toolbarItemVisibiliy)
         {
-            AnalyticsService.Instance.TrackEvent(Event.Action, Category.Touch, "StateDetailsStateTapped");
+            return;
         }
+        AnalyticsService.Instance.TrackEvent(Event.Action, Category.Touch, "StateDetailsStateTapped");
+
+        var result = await Application.Current.MainPage.DisplayAlert("Delete state", "Are you sure you want to delete this state?", "Yes", "No");
+
+        if (!result)
+        {
+            return;
+        }
+
+        timeRegistration.States.Remove((TimeState)item);
+        UpdateList();
     }
 
     public bool EditRegistrationVisibility {
