@@ -1,0 +1,135 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-android;net6.0-ios<!--;net6.0-maccatalyst--></TargetFrameworks>
+    <!-- <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks> -->
+    <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>Totalview_Time_MAUI</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>Totalview Time</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.exirpit.Totalview_Time</ApplicationId>
+    <ApplicationIdGuid>F42F86A4-E95C-41D8-9A91-ED08579FCDFA</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\appicon.svg" ForegroundFile="Resources\appiconfg.svg" Color="#002D62" />
+
+		<!-- Splash Screen -->
+    <MauiSplashScreen Include="Resources\appiconfg.svg" Color="#002D62" BaseSize="128,128" />
+    
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+
+    <!-- Icons -->
+    <MauiIcon Include="Resources\Icons\*" />
+    
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\add.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Maui" Version="1.0.0-rc2" />
+	  <PackageReference Include="CommunityToolkit.Maui.Core" Version="1.0.0" />
+	  <PackageReference Include="CommunityToolkit.Maui.Markup" Version="1.0.0" />
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview3" />
+	  <PackageReference Include="IdentityModel" Version="6.0.0" />
+	  <PackageReference Include="IdentityModel.OidcClient" Version="5.0.0" />
+	  <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.5.1" />
+	  <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.5.1" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	  <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.17.0" />
+	  <PackageReference Include="System.ServiceModel.Duplex" Version="4.9.0" />
+	  <PackageReference Include="System.ServiceModel.Federation" Version="4.9.0" />
+	  <PackageReference Include="System.ServiceModel.Http" Version="4.9.0" />
+	  <PackageReference Include="System.ServiceModel.NetTcp" Version="4.9.0" />
+	  <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
+	  <PackageReference Include="System.ServiceModel.Security" Version="4.9.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Common\View\Controls\Login\LearnMoreGrid.xaml.cs">
+	    <DependentUpon>LearnMoreGrid.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Common\View\Controls\Login\TitleGrid.xaml.cs">
+	    <DependentUpon>TitleGrid.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Common\View\NavigationTabs\StateDetails\StateDetails.xaml.cs">
+	    <DependentUpon>StateDetails.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="AppShell.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Common\View\NavigationTabs\InquiryDetails\InProgress.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Common\View\NavigationTabs\StateDetails\EditStatePopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Common\View\Controls\NavigationTabs\Overview\RegistrationBarGrid.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Common\View\Login\LoginServerDetails.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Common\View\Login\LoginUserDetails.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Common\View\NavigationTabs\Inquiry.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Common\View\NavigationTabs\Overview.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Common\View\NavigationTabs\StateDetails\StateDetails.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Common\View\NavigationTabs\TimeAccounts.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Common\View\Controls\Login\LearnMoreGrid.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Common\View\Controls\Login\TitleGrid.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Common\ViewModel\Controls\Login\" />
+	  <Folder Include="Common\View\Controls\NavigationTabs\Overview\StateDetails\" />
+	  <Folder Include="Platforms\iOS\Model\" />
+	</ItemGroup>
+	
+</Project>

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Totalview_Time_MAUI.Common.ViewModel.NavigationTabs.StateDetails"
+             xmlns:controls="clr-namespace:Totalview_Time_MAUI"
+             xmlns:models="clr-namespace:Totalview_Time_MAUI.Common.Model.TimeManagement"
+             x:Class="Totalview_Time_MAUI.StateDetails"
+             Title="State Details"
+             Style="{DynamicResource ContentPageDefault}">
+    <ContentPage.BindingContext>
+        <viewmodels:StateDetailsViewModel></viewmodels:StateDetailsViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <controls:ToolbarItemCustom IconImageSource="save" Command="{Binding SaveCommand}" IsVisible="{Binding ToolbarItemVisibility}"></controls:ToolbarItemCustom>
+    </ContentPage.ToolbarItems>
+    <StackLayout Orientation="Vertical">
+        <Label TextColor="{DynamicResource PrimaryColor}" Margin="40,0,40,0"
+               Text="{Binding TimeRegistration.CurrentDateTitle}"
+               FontSize="{DynamicResource smallFontSize}"
+               FontFamily="RobotoBoldItalic"
+               HorizontalOptions="End">
+        </Label>
+        <Frame Margin="40,0,40,0" Padding="0" HasShadow="True" BorderColor="Gray">
+            <StackLayout Orientation="Vertical">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="5"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Padding="10,0,10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label TextColor="{DynamicResource PrimaryTextColor}"
+                               Text="{Binding TimeRegistration.CurrentDayTitle}"
+                               FontSize="{DynamicResource mediumFontSize}"
+                               FontFamily="Roboto"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start">
+                        </Label>
+                        <StackLayout Orientation="Horizontal" Grid.Column="1" HorizontalOptions="End">
+                            <Label TextColor="{DynamicResource PrimaryTextColor}"
+                                   Text="{Binding CompleteWorkHours}"
+                                   FontSize="{DynamicResource mediumFontSize}"
+                                   FontFamily="Roboto"
+                                   VerticalOptions="Center"
+                                   Margin="0,0,5,0"
+                                   HorizontalOptions="End">
+                            </Label>
+                            <Label TextColor="{DynamicResource PrimaryTextColor}"
+                                   Text="Hours"
+                                   FontSize="{DynamicResource mediumFontSize}"
+                                   FontFamily="Roboto"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="End">
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                    <controls:RegistrationBarGrid RegistrationStates="{Binding States}" BackgroundColor="Red" Grid.Row="1"></controls:RegistrationBarGrid>
+                </Grid>
+                <Label TextColor="{DynamicResource SecondaryTextColor}"
+                       Text="My states"
+                       FontSize="{DynamicResource smallFontSize}"
+                       FontFamily="RobotoBold"
+                       Padding="10"
+                       HorizontalOptions="Start">
+                </Label>
+                <ListView x:Name="listView"
+                          ItemsSource="{Binding States}"
+                          IsPullToRefreshEnabled="False"
+                          IsEnabled="True"
+                          BackgroundColor="Transparent"
+                          MaximumHeightRequest="450"
+                          SeparatorVisibility="None"
+                          Margin="15,0,15,15"
+                          HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:TimeState">
+                            <ViewCell>
+                                <Frame CornerRadius="10" 
+                                       Padding="0" 
+                                       Margin="5" 
+                                       HasShadow="True" 
+                                       BackgroundColor="{DynamicResource SecondaryColor}">
+                                    <Grid Padding="7,0,7,0"
+                                          VerticalOptions="Center">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="21"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <BoxView Grid.Column="0"
+                                                 Margin="0" 
+                                                 BackgroundColor="{Binding Color}" 
+                                                 WidthRequest="7"
+                                                 VerticalOptions="FillAndExpand">
+                                        </BoxView>
+                                        <Grid Grid.Column="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="20"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Label TextColor="{DynamicResource PrimaryTextColor}"
+                                                   Text="{Binding Title}"
+                                                   FontSize="{DynamicResource mediumFontSize}"
+                                                   FontFamily="RobotoBold"
+                                                   Grid.Column="0" Grid.Row="0"
+                                                   HorizontalOptions="Start">
+                                            </Label>
+                                            <StackLayout Grid.Column="0" Grid.Row="1">
+                                                <Label TextColor="{DynamicResource PrimaryTextColor}"
+                                                   Text="{Binding Description}"
+                                                   FontSize="{DynamicResource smallFontSize}"
+                                                   FontFamily="Roboto"
+                                                   Grid.Column="0" Grid.Row="1"
+                                                   HorizontalOptions="Start">
+                                                </Label>
+                                            </StackLayout>
+                                            <StackLayout Grid.Column="1"
+                                                         Orientation="Horizontal" 
+                                                         HorizontalOptions="End">
+                                                <Label TextColor="{DynamicResource PrimaryTextColor}"
+                                                       Text="{Binding StartTime}"
+                                                       FontSize="{DynamicResource mediumFontSize}"
+                                                       FontFamily="RobotoBold">
+                                                </Label>
+                                                <Label TextColor="{DynamicResource PrimaryTextColor}"
+                                                   Text="-"
+                                                   FontSize="{DynamicResource mediumFontSize}"
+                                                   Padding="5,0,5,0"
+                                                   FontFamily="RobotoBold">
+                                                </Label>
+                                                <Label TextColor="{DynamicResource PrimaryTextColor}"
+                                                   Text="{Binding EndTime}"
+                                                   FontSize="{DynamicResource mediumFontSize}"
+                                                   FontFamily="RobotoBold">
+                                                </Label>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Grid VerticalOptions="Center">
+                    <Image x:Name="LockLockedImage" 
+                           Source="lock_locked" 
+                           HorizontalOptions="Start" 
+                           Margin="15,0,0,10">
+                    </Image>
+                    <Image  x:Name="LockOpenedImage" 
+                           Source="lock_open" 
+                           HorizontalOptions="Start" 
+                           Margin="15,0,0,10">
+                    </Image>
+                    <ImageButton x:Name="addButton" Source="add"
+                                 IsVisible="{Binding ShowAddButton}">
+                    </ImageButton>
+                    <ImageButton x:Name="editEnabledImageButton" 
+                                 Source="edit_enabled" 
+                                 HorizontalOptions="End" 
+                                 Margin="0,0,15,10"
+                                 IsVisible="{Binding EditRegistrationVisibility}"
+                                 Command="{Binding EditRegistrationCommand}">
+                    </ImageButton>
+                    <ImageButton x:Name="editDisabledImageButton" 
+                                 Source="edit_disabled" 
+                                 HorizontalOptions="End" 
+                                 Margin="0,0,15,10"
+                                 Command="{Binding EditRegistrationCommand}">
+                    </ImageButton>
+                </Grid>
+            </StackLayout>
+        </Frame>
+        <StackLayout VerticalOptions="EndAndExpand" Margin="0,0,0,15">
+            <Label TextColor="{DynamicResource PrimaryColor}"
+                       Text="Time accounts"
+                       FontSize="{DynamicResource smallFontSize}"
+                       FontFamily="RobotoBold"
+                       Padding="15,5,15,5"
+                       HorizontalOptions="Start">
+            </Label>
+            <Grid BackgroundColor="White" RowDefinitions="*,*,*" ColumnDefinitions="*,*" Margin="15,0,15,0" Padding="0,5,0,5">
+                <Label TextColor="{DynamicResource PrimaryColor}" Grid.Row="0" Grid.Column="0"
+                       Text="Normal time"
+                       FontSize="{DynamicResource smallFontSize}"
+                       FontFamily="RobotoBold"
+                       Padding="5,0,5,0"
+                       HorizontalOptions="Start">
+                </Label>
+                <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
+                    <Label TextColor="{DynamicResource PrimaryColor}"
+                       Text="{Binding NormalWorkHours}"
+                       FontSize="{DynamicResource smallFontSize}"
+                       FontFamily="RobotoBold"
+                       Padding="5,0,0,0"
+                       HorizontalOptions="End">
+                    </Label>
+                    <Label TextColor="{DynamicResource PrimaryColor}"
+                       Text="hours"
+                       FontSize="{DynamicResource smallFontSize}"
+                       FontFamily="RobotoBold"
+                       Padding="5,0,5,0"
+                       HorizontalOptions="End">
+                    </Label>
+                </StackLayout>
+                <Label TextColor="{DynamicResource PrimaryColor}" Grid.Row="1" Grid.Column="0"
+                       Text="Overtime"
+                       FontSize="{DynamicResource smallFontSize}"
+                       FontFamily="RobotoBold"
+                       Padding="5,0,5,0"
+                       HorizontalOptions="Start">
+                </Label>
+                <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
+                    <Label TextColor="{DynamicResource PrimaryColor}"
+                       Text="{Binding OvertimeWorkHours}"
+                       FontSize="{DynamicResource smallFontSize}"
+                       FontFamily="RobotoBold"
+                       Padding="5,0,0,0"
+                       HorizontalOptions="End">
+                    </Label>
+                    <Label TextColor="{DynamicResource PrimaryColor}"
+                       Text="hours"
+                       FontSize="{DynamicResource smallFontSize}"
+                       FontFamily="RobotoBold"
+                       Padding="5,0,5,0"
+                       HorizontalOptions="End">
+                    </Label>
+                </StackLayout>
+                <Label TextColor="{DynamicResource PrimaryColor}" Grid.Row="2" Grid.Column="0"
+                       Text="Vacation"
+                       FontSize="{DynamicResource smallFontSize}"
+                       FontFamily="RobotoBold"
+                       Padding="5,0,5,0"
+                       HorizontalOptions="Start">
+                </Label>
+                <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
+                    <Label TextColor="{DynamicResource PrimaryColor}"
+                       Text="{Binding VacationHours}"
+                       FontSize="{DynamicResource smallFontSize}"
+                       FontFamily="RobotoBold"
+                       Padding="5,0,0,0"
+                       HorizontalOptions="End">
+                    </Label>
+                    <Label TextColor="{DynamicResource PrimaryColor}"
+                       Text="hours"
+                       FontSize="{DynamicResource smallFontSize}"
+                       FontFamily="RobotoBold"
+                       Padding="5,0,5,0"
+                       HorizontalOptions="End">
+                    </Label>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
