@@ -63,6 +63,7 @@ internal partial class StateDetailsViewModel : BaseViewModel
         }
 
         timeRegistration.States.Remove((TimeState)item);
+        registrationIsEdited = true;
         UpdateList();
     }
 
@@ -129,6 +130,7 @@ internal partial class StateDetailsViewModel : BaseViewModel
     {
         States.Clear();
         States.AddRange(timeRegistration.States);
+        timeRegistration.UpdateStates(timeRegistration.States);
         CompleteWorkHours = timeRegistration.CompleteWorkHours;
         NormalWorkHours = timeRegistration.NormalWorkHours;
         OvertimeWorkHours = timeRegistration.OvertimeWorkHours;
