@@ -32,3 +32,7 @@ https://github.com/microsoft/appcenter
 
 ### MVVM Helpers
 https://github.com/jamesmontemagno/mvvm-helpers
+
+## License
+
+### GNU General Public License v3.0
