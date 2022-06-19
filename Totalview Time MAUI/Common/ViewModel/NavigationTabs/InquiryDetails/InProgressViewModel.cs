@@ -43,7 +43,7 @@ internal partial class InProgressViewModel : BaseViewModel
     {
         if (item != null)
         {
-            AnalyticsService.Instance.TrackEvent(Event.Action, Category.PageSession, "PendingRegistrationTapped");
+            AnalyticsService.Instance.TrackEvent(Event.Action, Category.Touch, "PendingRegistrationTapped");
             await Shell.Current.GoToAsync($"/{nameof(StateDetails)}", new Dictionary<string, object>
             {
                 [nameof(TimeRegistration)] = (TimeRegistration)item,
